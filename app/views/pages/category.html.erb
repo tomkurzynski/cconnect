@@ -1,16 +1,19 @@
 <p id="notice"><%= notice %></p>
   
-  <div id="productsContainer">
+  <div id="ProductsContainer">
   
     <h1>Products</h1>
-    
+
     <% @products.each do |product| %>
-    <div class = "producthols">
-        <h1><%= product.title %></h1>
-        <%= link_to (image_tag product.image_url, :class => "productholsIm", :size => "180x150"), product %>
+    <div class="producthols">  
+        <h1></h1><%= product.title %></h1>
+        
+        <%= link_to (image_tag product.image_url, :class => "productholsIm"), product %>
         <p><%= product.description %></p>
         <p>Price: <%=number_to_currency(product.price, :unit=> "€")%>
+        <br>
         Category: <%= product.category %>
+        <br>
         Brand: <%= product.brand %>
         <br>
         Weight: <%= product.weight %> kg</p>
@@ -23,8 +26,8 @@
             <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
           <% end %>
         </p>
-    </div>
        
+        </div>
     
     <% end %>
   

@@ -18,6 +18,7 @@
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close
     <i class="fa fa-remove"></i>
   </a>
+  
   <a href="#" class="w3-bar-item w3-button">Link 1</a>
   <a href="#" class="w3-bar-item w3-button">Link 2</a>
   <a href="#" class="w3-bar-item w3-button">Link 3</a>
@@ -30,29 +31,43 @@
  <div class="w3-bar w3-theme-d2 w3-left-align">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
   <span class="logosize"><%= link_to "  C | C", "/", :class => "w3-bar-item w3-button w3-black fa fa-home w3-margin-right" %></span>
+
+  <a onclick="w3_open()" class="w3-button w3-teal">Potential Admin Panel</a>
   <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>
   <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
   <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Price</a>
   <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+  
   <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button" title="Notifications">Dropdown <i class="fa fa-caret-down"></i></button>     
+    <button class="w3-button" title="Notifications"><%=link_to "Products","/products",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
     <div class="w3-dropdown-content w3-card-4 w3-bar-block">
-      <a href="#" class="w3-bar-item w3-button">Link</a>
-      <a href="#" class="w3-bar-item w3-button">Link</a>
-      <a href="#" class="w3-bar-item w3-button">Link</a>
+      <%=render 'layouts/categories'%>
     </div>
 
  
   </div>
-  <%= link_to "OLD Log Out",  "/logout", class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %> 
-  <%= link_to "OLD Log In",   "/login", class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
+    <% if session[:login] == 1 %> 
+        <%= link_to "Admin Logout", "/logout", class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
+        <% else %>
+        
+        <%= link_to "Admin Login", "/login", class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
+    <% end %>
+  
   <% if user_signed_in? %>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-white">Hi <%= current_user.email %></a>
     <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
+    <% if current_user.admin? %>
+      <%= link_to "All Users", "/allusers", class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
+    <%end%>
+    <%= link_to 'Edit Profile', edit_user_registration_path, :method => :delete, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-white">Hi <%= current_user.email %></a>
   <% else %>
      <%= link_to 'Register', new_user_registration_path, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
      <%= link_to 'Sign in', new_user_session_path, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
+     
   <% end %>
+  
+  
+  
  <%=render 'layouts/search'%>
  </div>
 
@@ -62,7 +77,11 @@
     <a href="#work" class="w3-bar-item w3-button">Work</a>
     <a href="#pricing" class="w3-bar-item w3-button">Price</a>
     <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-    <a href="#" class="w3-bar-item w3-button">Search</a>
+    <%=link_to "Products","/products",class:"w3-bar-item w3-button tdnone"%>
+
+
+
+
   </div>
 </div>
 
@@ -86,6 +105,9 @@
     <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
     <i class="fa fa-chevron-circle-up"></i></span></a>
   </div>
+  
+ 
+
 </footer>
 
 <script>

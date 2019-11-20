@@ -23,3 +23,13 @@
 .logosize{
     font-size: 25px;
 }
+.tdnone{
+    text-decoration: none;
+    color:white;
+}
+.sicon{
+ background-color: transparent;
+ border:none;
+ color:white;
+ height:20px;
+}

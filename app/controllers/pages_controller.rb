@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     #current_user.update_attribute :admin, true
+    @categories = Category.all
   end
   
   def allusers
@@ -18,7 +19,11 @@ class PagesController < ApplicationController
     @user.update_attribute(:admin, false)
     redirect_to "/"
   end
-  
+  def category
+    catName = params[:title]
+    @products = Product.where("category like ? ", catName)
+  end
+
   
   
 end
