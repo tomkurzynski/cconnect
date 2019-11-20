@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  resources :products
   devise_for :users
   root 'pages#home'
+  
+  post '/search' => 'products#search'
 
   get '/login' => 'user#login'
   get '/logout' => 'user#logout'

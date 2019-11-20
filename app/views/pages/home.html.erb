@@ -17,7 +17,13 @@
       <h5>You need to sign in or sign up before you can shop <i class="fa fa-smile-o"></i></h5>
     </header>
     <div class="w3-container">
-      <p>Add some ruby code here</p>
+      <% if user_signed_in? %>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-white">Hi <%= current_user.email %></a>
+    <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
+  <% else %>
+     <%= link_to 'Register', new_user_registration_path, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
+     <%= link_to 'Sign in', new_user_session_path, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
+  <% end %>
       
     </div>
     <footer class="w3-container w3-teal">
