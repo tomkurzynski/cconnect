@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   
   post '/search' => 'products#search'
+  get '/search' => 'pages#home'
 
   get '/login' => 'user#login'
   get '/logout' => 'user#logout'
