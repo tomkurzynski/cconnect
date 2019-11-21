@@ -15,4 +15,6 @@ class ApplicationController < ActionController::Base
   def commonMethod
      @categories = Category.all 
   end
+  
+
 end

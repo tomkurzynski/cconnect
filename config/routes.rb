@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cart/index'
+
   resources :site_contents
   resources :categories
   resources :products
@@ -10,9 +12,19 @@ Rails.application.routes.draw do
   get '/search' => 'pages#home'
   get 'category/:title' => 'pages#category'
 
+
   get '/login' => 'user#login'
   get '/logout' => 'user#logout'
-  
+
+
+
+  get '/checkout' => 'cart#createOrder' 
+  get '/remove/:id' => 'cart#remove'
+  get '/reduce/:id' => 'cart#reduce'
+  get '/add/:id' => 'cart#add'
+  get '/cart/clearcart' => 'cart#clearcart'
+  get '/cart' => 'cart#index'
+  get '/cart/:id' => 'cart#add'
   
   root :to => 'site#home'
   
