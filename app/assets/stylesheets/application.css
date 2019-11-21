@@ -13,6 +13,17 @@
  *= require_tree .
  *= require_self
  */
+ .hover-black:hover{
+     background-color: black;
+     color:white;
+ }
+ .hover-black{
+     padding:5px;
+   
+ }
+ html,body{
+     font-family: 'Special Elite', cursive;
+ }
 #header{
     width: 100%;
     height: 500px;
@@ -27,6 +38,9 @@
     text-decoration: none;
   
 }
+.topborder{
+    text-decoration: underline overline teal;
+}
 
 .sicon{
  background-color: transparent;
@@ -36,6 +50,9 @@
 }
 .sicon:hover{
     background-color: teal;
+}
+.topborder{
+    border:1px solid teal;
 }
 footer{
     border-top:2px solid white;
