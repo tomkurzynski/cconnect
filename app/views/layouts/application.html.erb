@@ -47,7 +47,7 @@
 
 <% if user_signed_in? %>
   
-    <a onclick="w3_open()" class="w3-button w3-teal">Potential Admin Panel</a>
+    <a onclick="w3_open()" class="w3-bar-item w3-button w3-hide-small w3-teal w3-right">My Options</a>
     
       <% end %>
   
@@ -66,12 +66,12 @@
     </div>  
   </div>
   <div style="padding-right:10px;">
-    <span style="float:left;padding-top:5px;padding-left:20px;"><%=render 'layouts/search'%></span>
+    <span style="float:left;padding-top:5px;padding-left:18px;"><%=render 'layouts/search'%></span>
          <% if user_signed_in? %>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal">Hi <%= current_user.email %></a>  
   <% else %>
-    <%= link_to 'Register', new_user_registration_path, class: "w3-bar-item topborder w3-hide-small w3-right w3-hover-teal" %>
-    <%= link_to 'Sign in', new_user_session_path, class: "w3-bar-item topborder w3-hide-small w3-right w3-hover-teal" %>
+    <%= link_to 'Register', new_user_registration_path, class: "tdnone w3-bar-item w3-teal w3-hide-small w3-right w3-hover-white w3-border" %>
+    <span><%= link_to 'Sign in', new_user_session_path, class: "tdnone w3-bar-item w3-teal w3-hide-small w3-right w3-hover-white w3-border" %>
   <% end %>
    
    

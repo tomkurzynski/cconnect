@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
 
   def search
      st = "%#{params[:q]}%"
-     @products = Product.where("lower(title) like ?", st) 
+     @products = Product.where("lower(title) like ? or lower(description) like?", st,st) 
 
   end
 
