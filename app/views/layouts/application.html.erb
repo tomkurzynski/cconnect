@@ -19,33 +19,56 @@
     <i class="fa fa-remove"></i>
   </a>
   
-  <a href="#" class="w3-bar-item w3-button">Link 1</a>
-  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+  <% if user_signed_in? %>
+    
+    <% if current_user.admin? %>
+      <%= link_to "All Users", "/allusers", class: "w3-bar-item w3-button" %>
+    <%end%>
+    <%= link_to 'Edit Profile', edit_user_registration_path, :method => :get, class: "w3-bar-item w3-button" %>
+    <a href="#" class="w3-bar-item w3-button">Shipping address</a>
+    <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "w3-bar-item w3-button" %>
+  <% end %>
+     
+  
   <a href="#" class="w3-bar-item w3-button">Link 3</a>
   <a href="#" class="w3-bar-item w3-button">Link 4</a>
-  <a href="#" class="w3-bar-item w3-button">Link 5</a>
+
 </nav>
 
 <!-- Navbar -->
 <div class="w3-top">
+  
  <div class="w3-bar w3-theme-d2 w3-left-align">
+   <span style="float:right;padding-top:5px;padding-right:5px;"><%=render 'layouts/search'%></span>
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
   <span class="logosize"><%= link_to "  C | C", "/", :class => "w3-bar-item w3-button w3-black fa fa-home w3-margin-right" %></span>
 
-  <a onclick="w3_open()" class="w3-button w3-teal">Potential Admin Panel</a>
-  <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>
+<% if user_signed_in? %>
+  
+    <a onclick="w3_open()" class="w3-button w3-teal">Potential Admin Panel</a>
+    
+      <% end %>
+  
+  <%=link_to "About","/dynamic_page/About",class:"w3-bar-item w3-button w3-hide-small w3-hover-white"%>
   <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
   <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Price</a>
   <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
   
+
+  <button class="w3-button" title="Help"><%= link_to "Help","/dynamic_page/Help"%></link_to> <i class="w3-bar-item w3-button w3-hide-small w3-hover-white"></i></button>
+  <!-- About test -->
+  
+  
+  
   <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button" title="Notifications"><%=link_to "Products","/products",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
-    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+    <button class="w3-button" title="Products"><%=link_to "Products","/products",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block tdnone">
       <%=render 'layouts/categories'%>
     </div>
 
  
   </div>
+  
     <% if session[:login] == 1 %> 
         <%= link_to "Admin Logout", "/logout", class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
         <% else %>
@@ -54,22 +77,15 @@
     <% end %>
   
   <% if user_signed_in? %>
-    <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
-    <% if current_user.admin? %>
-      <%= link_to "All Users", "/allusers", class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
-    <%end%>
-    <%= link_to 'Edit Profile', edit_user_registration_path, :method => :delete, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-white">Hi <%= current_user.email %></a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-white">Hi <%= current_user.email %></a>  
   <% else %>
-     <%= link_to 'Register', new_user_registration_path, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
-     <%= link_to 'Sign in', new_user_session_path, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
-     
+    <%= link_to 'Register', new_user_registration_path, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
+    <%= link_to 'Sign in', new_user_session_path, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
   <% end %>
   
-  
-  
- <%=render 'layouts/search'%>
+
  </div>
+  
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
@@ -98,7 +114,7 @@
   <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Google +"><i class="fa fa-google-plus"></i></a>
   <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Google +"><i class="fa fa-instagram"></i></a>
   <a class="w3-button w3-large w3-teal w3-hide-small" href="javascript:void(0)" title="Linkedin"><i class="fa fa-linkedin"></i></a>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  <p>Coffee Connect</p>
 
   <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
     <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>   

@@ -1,5 +1,6 @@
 <%= form_tag("/search", :method => "post") do %>
-<%-#= label_tag(:searchMe) %>
-<%= text_field_tag(:searchMe) %>
+<%= label_tag(:q, "Search for:") %>
+<%= text_field_tag(:q) %>
 <%= button_tag(type="",class:"fa fa-search sicon") %>
 <% end %>
+

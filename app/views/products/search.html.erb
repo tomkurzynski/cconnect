@@ -8,11 +8,11 @@
 
 <table>
        <% @products.each do |product| %>
-      <div>
+      <div  class = "producthols">
        <h1><%= product.title %></h1>
        
        <%= link_to (image_tag product.image_url), product %>
-        <p><%= product.description %></p>
+       <p><%= product.description %></p>
        <p>Price <%= number_to_currency(product.price, :unit => "€") %>
        <br>
         Category: <%= product.category %>

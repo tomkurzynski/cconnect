@@ -4,6 +4,13 @@ class PagesController < ApplicationController
     @categories = Category.all
   end
   
+  def dynamic_page 
+    catName = params[:title] 
+    @site_contents = SiteContent.where("title like ? ", catName) 
+    
+  end
+  
+  
   def allusers
     @users = User.all
   end
@@ -21,7 +28,8 @@ class PagesController < ApplicationController
   end
   def category
     catName = params[:title]
-    @products = Product.where("category like ? ", catName)
+    @products = 
+    Product.where("category like ? ", catName)
   end
 
   
