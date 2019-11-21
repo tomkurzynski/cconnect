@@ -25,10 +25,11 @@
  }
 #header{
     width: 100%;
-    height: 500px;
+    height: 600px;
    
     background-image: url(https://ssdcoffeeconnect.s3.amazonaws.com/assets/Site/banner.png);
     background-size: cover;
+    filter: grayscale(60%);
 }
 .logosize{
     font-size: 25px;
@@ -139,3 +140,38 @@ footer{
     cursor: pointer;
 }
 
+	.typewriter {
+    font-family: Courier, monospace;
+	display: inline-block;
+}
+
+.typewriter-text {
+    
+  	overflow: hidden;
+  	letter-spacing: 2px;
+ 	animation: typing 5s steps(16, end), blink .75s step-end infinite;
+    white-space: nowrap;
+    font-size: 30px;
+    font-weight: 700;
+    border-right: 4px solid teal;
+    box-sizing: border-box;
+    color: white;
+}
+
+@keyframes typing {
+    from { 
+        width: 0% 
+    }
+    to { 
+        width: 100% 
+    }
+}
+
+@keyframes blink {
+    from, to { 
+        border-color: transparent 
+    }
+    50% { 
+        border-color: teal; 
+    }
+}
