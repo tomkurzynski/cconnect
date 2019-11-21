@@ -50,25 +50,30 @@
       <% end %>
   
   <%=link_to "About","/dynamic_page/About",class:"w3-bar-item w3-button w3-hide-small w3-hover-white"%>
-  <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
-  <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Price</a>
+  <%=link_to "Help","/dynamic_page/Help",class:"w3-bar-item w3-button w3-hide-small w3-hover-white"%>
   <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
   
 
-  <button class="w3-button" title="Help"><%= link_to "Help","/dynamic_page/Help"%></link_to> <i class="w3-bar-item w3-button w3-hide-small w3-hover-white"></i></button>
-  <!-- About test -->
   
   
   
   <div class="w3-dropdown-hover w3-hide-small">
     <button class="w3-button" title="Products"><%=link_to "Products","/products",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
-    <div class="w3-dropdown-content w3-card-4 w3-bar-block tdnone">
+    <div class="w3-dropdown-content">
       <%=render 'layouts/categories'%>
     </div>
-
- 
+    
   </div>
-  
+  <div style="padding-right:10px;">
+         <% if user_signed_in? %>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal">Hi <%= current_user.email %></a>  
+  <% else %>
+    <%= link_to 'Register', new_user_registration_path, class: "w3-bar-item topborder w3-hide-small w3-right w3-hover-teal" %>
+    <%= link_to 'Sign in', new_user_session_path, class: "w3-bar-item topborder w3-hide-small w3-right w3-hover-teal" %>
+  <% end %>
+   
+   
+   
     <% if session[:login] == 1 %> 
         <%= link_to "Admin Logout", "/logout", class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
         <% else %>
@@ -76,12 +81,7 @@
         <%= link_to "Admin Login", "/login", class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
     <% end %>
   
-  <% if user_signed_in? %>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-white">Hi <%= current_user.email %></a>  
-  <% else %>
-    <%= link_to 'Register', new_user_registration_path, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
-    <%= link_to 'Sign in', new_user_session_path, class: "w3-bar-item w3-button w3-hide-small w3-right w3-hover-white" %>
-  <% end %>
+</div>
   
 
  </div>
@@ -94,6 +94,7 @@
     <a href="#pricing" class="w3-bar-item w3-button">Price</a>
     <a href="#contact" class="w3-bar-item w3-button">Contact</a>
     <%=link_to "Products","/products",class:"w3-bar-item w3-button tdnone"%>
+    
 
 
 
