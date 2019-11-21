@@ -14,14 +14,12 @@
  *= require_self
  */
  .hover-black:hover{
-     background-color: black;
-     color:white;
+     background-color: teal;
+     font-size: 17px;
+     transition: 0.2s;
+     
  }
- .hover-black{
-
-     width:100%;
-   
- }
+ 
  html,body{
      font-family: 'Special Elite', cursive;
  }
