@@ -68,7 +68,7 @@
   <div style="padding-right:10px;">
     <span style="float:left;padding-top:5px;padding-left:18px;"><%=render 'layouts/search'%></span>
          <% if user_signed_in? %>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal">Hi <%= current_user.email %></a>  
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal">Hi <%= current_user.name %></a>  
   <% else %>
     <%= link_to 'Register', new_user_registration_path, class: "tdnone w3-bar-item w3-teal w3-hide-small w3-right w3-hover-white w3-border" %>
     <span><%= link_to 'Sign in', new_user_session_path, class: "tdnone w3-bar-item w3-teal w3-hide-small w3-right w3-hover-white w3-border" %>
