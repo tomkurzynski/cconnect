@@ -69,6 +69,6 @@ class SiteContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_content_params
-      params.require(:site_content).permit(:title, :header1, :header2, :description1, :description2, :image)
+      params.require(:site_content).permit(:title, :header1, :header2, :description1, :description2, :image, :phonenumber, :address, :email )
     end
 end

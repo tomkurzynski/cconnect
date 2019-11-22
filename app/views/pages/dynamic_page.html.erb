@@ -1,43 +1,41 @@
 <p id="notice"><%= notice %></p>
 
 <% @site_contents.each do |site_content| %>
-<!-- David code -->
+
+<!--header-->
 <div id="header_about" class="w3-display-container w3-animate-opacity">
-  
   <div class="w3-container w3-display-bottomleft w3-margin-bottom"> 
 
 <div class="typewriter">
     <div class="typewriter-text"><%= site_content.title %></div>
 </div><br>
-<!-- David code -->
+  </div>
+  </div>
+</div>
+<!--header/end-->
 
 <!-- About us -->
+<div class="w3-row-padding" id="work">
+<br>
+<div class="headers"><%= site_content.header1 %></div>
+<div class="descriptions"><%= site_content.description1 %></div>
+<br>
+<div class="headers"><%= site_content.header2 %></div>
+<div class="descriptions"><%= site_content.description2 %></div>
 
-     
-       
-
-
-<div class="w3-display-container w3-animate-opacity">
-<h2><%= site_content.title %></h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div>
+<!-- About us/end -->
 
-
-  
-  </div>
-  </div>
-</div>
 
 <!-- Contact Container -->
 <div class="w3-container w3-padding-64" id=contact>
   <div class="w3-row">
     <div class="w3-col m5">
     <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Contact Us</span></div>
-      <h3>Address</h3>
-      <p>Swing by for a cup of coffee, or whatever.</p>
-      <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i>Chicago, US</p>
-      <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i>+00 1515151515</p>
-      <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>test@test.com</p>
+     
+      <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i> <%= site_content.address %></p>
+      <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i> <%= site_content.phonenumber %></p>
+      <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i> <%= site_content.email %></p>
     </div>
     <div class="w3-col m7">
       <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
@@ -60,9 +58,6 @@
     </div>
   </div>
 </div>
-
-<!-- Image of location/map -->
-<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%;">
 
 
         <!------- Access to admin only----->

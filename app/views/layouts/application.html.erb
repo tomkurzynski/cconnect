@@ -44,7 +44,7 @@
    
    
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-  <span class="logosize"><%= link_to "  C | C", "/", :class => "w3-bar-item w3-button w3-black fa fa-home w3-margin-right" %></span>
+  <span class="logosize"><%= link_to "  C | C", "/", :class => "w3-bar-item w3-button w3-black fa fa-home w3-margin-right w3-hover-teal" %></span>
 
 <% if user_signed_in? %>
   
@@ -52,16 +52,16 @@
     
       <% end %>
   
-  <%=link_to "About","/dynamic_page/About",class:"w3-bar-item w3-button w3-hide-small w3-hover-white"%>
-  <%=link_to "Help","/dynamic_page/Help",class:"w3-bar-item w3-button w3-hide-small w3-hover-white"%>
-  <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+  <%=link_to "About","/dynamic_page/About Us",class:"w3-bar-item w3-button w3-hide-small w3-hover-teal"%>
+  <%=link_to "Blog","/dynamic_page/Blog",class:"w3-bar-item w3-button w3-hide-small w3-hover-teal"%>
+  <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-teal">Contact</a>
   
 
   
   
   
   <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button" title="Products"><%=link_to "Products","/products",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <button class="w3-button w3-hover-teal" title="Products"><%=link_to "Products","/products",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
     <div class="w3-dropdown-content w3-black">
       <%=render 'layouts/categories'%>
     </div>  
