@@ -1,26 +1,26 @@
-<table class="catalog">
-  <% @products.limit(2).order(:id).each do |product| %>
+<table style="padding:10px;margin-top:10px;margin-bottom:10px;">
+  <% @products.limit(4).order(:id).each do |product| %>
       <tr>
-        <td>
-          <div class="image">
-            <%= link_to (image_tag product.image_url, :style => "height:100px"), product %>
+        <td style="border:2px solid teal;padding:10px;width:50%;" class="w3-hover-teal">
+          <div style="float:left;margin-right:50px;">
+            <%= link_to (image_tag product.image_url, :style => "height:100px; width:100px"), product %>
           </div>
-          <div class="title">
+          <div style="text-decoraction:none;">
             <%= link_to product.title, product %>
           </div>
-          <div class="description">
+          <div>
             <%= product.description %>
           </div>  
-          <div class="price">
+          <div>
              <%= number_to_currency(product.price, :unit => "€") %>
           </div>
-          <div class="links">
+          <div>
             <% if session[:login] ==1 %>
               <%= link_to 'Edit', edit_item_path(item) %>
               <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
             <%else%>
             
-              <a href="/cart/<%= product.id %>">Add to Cart</a>
+              <a class="test" href="/cart/<%= product.id %>">Add to Cart</a>
             <%end%>  
         </div>
         </td>

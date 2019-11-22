@@ -39,6 +39,17 @@
   
 }
 
+.test{
+    text-decoration: none;
+    padding: 3px;
+    border: 1px solid teal;
+    background-color: black;
+    color:white;
+}
+.test:hover{
+    background-color: white;
+    color:black;
+}
 
 .sicon{
  background-color: transparent;
