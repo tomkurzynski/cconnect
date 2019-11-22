@@ -12,7 +12,7 @@ class CartController < ApplicationController
  # Step 3: For each item in the cart, create a new item on the order!!
  @cart = session[:cart] || {} # Get the content of the Cart
  @cart.each do | id, quantity |
- item = Item.find_by_id(id)
+ item = Product.find_by_id(id)
  @orderitem = @order.orderitems.build(:item_id => item.id, :title => item.title, :description => item.description, :quantity => quantity, :price=> item.price)
  @orderitem.save
  end
