@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
     resources :orders do 
-    resources:orderitems
+      resources:orderitems
   end
 
   get 'cart/index'
@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   
   devise_for :users do 
     resources :orders 
-    end
+  end
+  
   get '/checkout' => 'cart#createOrder'
   get '/paid/:id' => 'pages#paid'
   
@@ -38,11 +39,16 @@ Rails.application.routes.draw do
   
   root :to => 'site#home'
   
+  
+  
   get '/upgrade/:id' => 'static_pages#upgrade'
   get '/downgrade/:id' => 'static_pages#downgrade'
   get '/allusers' => 'pages#allusers'
   
+  get '/aboutSend/:id' => 'pages#aboutSend'  
+  
   get 'dynamic_page/:title' => 'pages#dynamic_page'
+
   
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

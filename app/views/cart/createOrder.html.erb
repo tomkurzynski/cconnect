@@ -1,3 +1,5 @@
+<div style="margin-top:10%;">
+
 You just placed order no: <%= @orders.id %> 	
 
 <table id="customers">
@@ -6,6 +8,7 @@ You just placed order no: <%= @orders.id %>
           <% @orders.id do |order| %>  
 
        <td>Order reference for the order you just placed <%= order.id %></td>
+       
         <% end %>
     </tr>
 </table>    
@@ -62,6 +65,23 @@ You just placed order no: <%= @orders.id %>
       
       <tr>
           <td><h2>  <a href="/paid/<%= @order.id %>" class="button">Pay Now</a></h2></td>
+          
       </tr>
 
 </table>
+
+     <!-- Paypal button --->
+          <tr>
+        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="sb-43xm74622398@business.example.com">
+        <input type="hidden" name="item_name" value="Order Number <%= @order.id %>">
+        <input type="hidden" name="currency_code" value="EUR">
+        <input type="hidden" name="amount" value="<%= @overall %>">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+        <input type="hidden" name="return" value="https://be8a03d039524ceeaf85d9ba0a6c5ade.vfs.cloud9.us-east-1.amazonaws.com/aboutSend/<%= @order.id %>" >
+        <input type="hidden" name="notify_url" value="https://be8a03d039524ceeaf85d9ba0a6c5ade.vfs.cloud9.us-east-1.amazonaws.com/aboutSend/<%= @order.id %>">
+        </form> 
+        </tr>
+          
+</div>

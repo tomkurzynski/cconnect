@@ -4,12 +4,19 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
+    if user_signed_in? && current_user.admin?
     @orders = Order.all
+    else
+      redirect_to '/'
+    end
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @orderitems = Orderitem.all
+    @orderitems = Orderitem.where(order_id: params[:id])
+
   end
 
   # GET /orders/new

@@ -1,22 +1,31 @@
-<div class="w3-container w3-padding-64 w3-center" id="team">
-    <h1>Here are all the users</h1>
+ <% if user_signed_in? %>
     
-    
-    <div class="mainCont">
-        
-        <h1>All The People...... So Many People....</h1>
-        
-    <% @users.each do |user| %>
-        <div class="itemhols">
-           <h1>User Id: <%= user.id %></h1>
-           <h1>email: <%= user.email %></h1>
-           <h1>Admin: <%= user.admin %></h1>
-           <p><a href="/upgrade/<%= user.id %>" class="button">Make Admin</a></p>
-           <p><a href="/downgrade/<%= user.id %>" class="button">Make Not Admin</a></p>
-        </div>
-       
+    <% if current_user.admin? %>
+
+        <div class="w3-container w3-padding-64 w3-center" id="team">
+            <h1>Here are all the users</h1>
+            
+            
+            <div class="mainCont">
+                
+                <h1>All The People...... So Many People....</h1>
+                
+            <% @users.each do |user| %>
+                <div class="itemhols">
+                   <h1>User Id: <%= user.id %></h1>
+                   <h1>email: <%= user.email %></h1>
+                   <h1>Admin: <%= user.admin %></h1>
+                   <p><a href="/upgrade/<%= user.id %>" class="button">Make Admin</a></p>
+                   <p><a href="/downgrade/<%= user.id %>" class="button">Make Not Admin</a></p>
+                </div>
+               
+            <% end %>
+                
+                
+            </div>
+        </div> 
     <% end %>
-        
-        
-    </div>
-</div> 
+
+
+<% end %>
+    

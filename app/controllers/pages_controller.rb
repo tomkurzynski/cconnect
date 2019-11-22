@@ -13,7 +13,11 @@ class PagesController < ApplicationController
   
   
   def allusers
+    if  user_signed_in? && current_user.admin?
     @users = User.all
+    else
+    redirect_to '/'
+    end
   end
   
   def upgrade
@@ -33,6 +37,12 @@ class PagesController < ApplicationController
     Product.where("category like ? ", catName)
   end
   
+  def aboutSend
+@order = Order.find(params[:id])
+@order.update_attribute(:status, "Paid with Paypal")
+
+  end
+  
 def paid
     # redirect_to "/cart/clear"
     flash[:notice] = 'Transaction Complete'
@@ -40,12 +50,21 @@ def paid
     @order.update_attribute(:status , "Paid by User: #{current_user.email}")
     #"Paid by User:#{current_user.id} #{current_user.name} #{current_user.surname}")
     
-  end
-
-
-
-
-
-  
-  
 end
+
+
+
+
+
+
+
+
+end
+
+
+
+
+
+  
+  
+
