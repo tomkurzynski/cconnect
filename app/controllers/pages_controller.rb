@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   def home
     #current_user.update_attribute :admin, true
     @categories = Category.all
+    @products = Product.all
   end
   
   def dynamic_page 

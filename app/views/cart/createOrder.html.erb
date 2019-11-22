@@ -1,13 +1,9 @@
-<div style="margin-top:5%;" id="itemsContainer">
-    <h1>Thank You<br>
-
-</div>
-
+You just placed order no: <%= @orders.id %> 	
 
 <table id="customers">
     <tr>
          
-        You just placed: <% @orders.id do |order| %>
+          <% @orders.id do |order| %>  
 
        <td>Order reference for the order you just placed <%= order.id %></td>
         <% end %>
@@ -27,7 +23,7 @@
        <td><%= number_to_currency(item.quantity * item.price, :unit => "€") %></td>
        </tr>
        
-       <% timx = (item.quantity * item.price)%>  
+       <% timx = (item.quantity * item.price)%>   
 
      
      
@@ -37,23 +33,35 @@
     <% end %>
     
     
+    <% if @total > 100 %>
+    
+    <% shipping = 0 %>
+    
+    <% else %>
+    <% shipping = 30 %>
+    
+    <% end %>
+    
+      <% @overall = shipping + @total%>
+
+    
     <tr>
         
        <td>Order Total: &euro; <%= @total %></td>
        
-      </tr>
-</table>
-
-<td>Order Total: &euro; <%= @total %></td>
+       <% if @total > 100 %>
        
-<% shipping = 30 %>
-      <% @overall = shipping + @total%>
-      <tr>
-          <td>Shipping &euro;30</td>
-          <td>You Pay &euro; <%= @overall %></td>
+       <td>Shipping Free you spent Enough</td>
+       
+       <% else %>
+       <td>Shipping €30</td>
+       <% end %>
+       <td>Grand Total: &euro; <%= @overall %></td>
+       
       </tr>
+      
       <tr>
           <td><h2>  <a href="/paid/<%= @order.id %>" class="button">Pay Now</a></h2></td>
       </tr>
 
-
+</table>
