@@ -3,6 +3,12 @@
   <div id="productsContainer">
   
     <h1>Products</h1>
+    
+    <%= form_tag products_path, method: "get" do %>
+    <%= select "product", "category", options_for_select(options_for_categories, selected: params[:product][:category]), {prompt: 'Select Category'} %>
+    <%= submit_tag "Filter", name: nil %>
+    <% end %>
+    
     <% @products.each do |product| %>
     <div class = "producthols">
         <h1><%= product.title %></h1>

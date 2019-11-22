@@ -14,12 +14,12 @@
   <strong>Price:</strong>
   <%= @product.price %>
 </p>
-
+<!-----------------------------
 <p>
   <strong>Image url:</strong>
-  <%= @product.image_url %>
+  <%#= @product.image_url %>
 </p>
-
+----------------------------------->
 <p>
   <strong>Category:</strong>
   <%= @product.category %>
@@ -34,6 +34,7 @@
   <strong>Weight:</strong>
   <%= @product.weight %>
 </p>
-
+<% if user_signed_in? && current_user.admin? %>
 <%= link_to 'Edit', edit_product_path(@product) %> |
+<%end%>
 <%= link_to 'Back', products_path %>
