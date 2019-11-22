@@ -10,6 +10,8 @@
 <div id="itemsContainer">
     <table id="customers">
         <% total = 0 %>
+        <% totalq = 0 %>
+       
         <% @cart.each do |id, quantity| %>
         
         <% product = Product.find_by_id(id) %>
@@ -35,11 +37,16 @@
         
         <tr>
             <% total += quantity * product.price %>
+            <% totalq += quantity %>
+           
           </tr>
          <% end %>
          <tr>
              <td>
             Grand Total: <%= number_to_currency(total, :unit => "€") %>
+            TotalQ: <%= totalq %>
+          
+           
             </td>
           </tr>
           
