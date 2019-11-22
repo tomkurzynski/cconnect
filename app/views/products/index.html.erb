@@ -6,7 +6,7 @@
     <% @products.each do |product| %>
     <div class = "producthols">
         <h1><%= product.title %></h1>
-        <%= link_to (image_tag product.image_url, :class => "productholsIm", :size => "180x150"), product %>
+        <%= link_to (image_tag product.image_url, :class => "productholsIm", :style => "height:100px; width:100px"), product %>
         <p><%= product.description %></p>
         <p>Price: <%=number_to_currency(product.price, :unit=> "€")%>
         Category: <%= product.category %>

@@ -1,11 +1,18 @@
 <div style="margin-top:10%;">
 <% if @cart.empty? %>
-<p>You have not added any items yet</p>
-<% end %>
+<p>Need to add functionality here to display recommended products maybe</p>
+<a href="/products" class="button">Continue Shopping</a>
+<%else%>
+
 
 
 
 <p id="notice"><%= notice %></p>
+
+
+
+
+
 
 <div id="itemsContainer">
     <table id="customers">
@@ -66,3 +73,4 @@
     </table>
       </div>
 </div>
+<% end %>
