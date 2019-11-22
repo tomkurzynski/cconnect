@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :orders 
     end
   get '/checkout' => 'cart#createOrder'
+  get '/paid/:id' => 'pages#paid'
   
   root 'pages#home'
   
