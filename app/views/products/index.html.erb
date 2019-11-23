@@ -4,10 +4,8 @@
   
     <h1>Products</h1>
     
-    <%= form_tag products_path, method: "get" do %>
-    <%= select "product", "category", options_for_select(options_for_categories, selected: params[:product][:category]), {prompt: 'Select Category'} %>
-    <%= submit_tag "Filter", name: nil %>
-    <% end %>
+    <%=render 'layouts/categories'%>
+
     
     <% @products.each do |product| %>
     <div class = "producthols">
@@ -21,12 +19,16 @@
         Weight: <%= product.weight %> kg</p>
         
         <p>
-          <%= link_to 'Show', product, :class => "button", :role => "button" %>
-          <a href="/cart/<%= product.id %>" class="button">Add To Cart</a>
+         
           
-          <% if session[:login] == 1 %> 
-            <%= link_to 'Edit', edit_product_path(product), :class => "button", :role => "button" %>
-            <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+           <% if user_signed_in? %>
+              <% if current_user.admin? %>
+                <%= link_to 'Edit', edit_product_path(product), :class => "button", :role => "button" %>
+                <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+            <% end %>
+            <% else %>
+              <%= link_to 'Show', product, :class => "button", :role => "button" %>
+              <a href="/cart/<%= product.id %>" class="button">Add To Cart</a>
           <% end %>
         </p>
     </div>

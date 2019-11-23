@@ -4,10 +4,10 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    if user_signed_in? && current_user.admin?
+    #if user_signed_in? && current_user.admin?
     @orders = Order.all
-    else
-      redirect_to '/'
+    #else
+     # redirect_to '/'
     end
   end
 
@@ -16,7 +16,6 @@ class OrdersController < ApplicationController
   def show
     @orderitems = Orderitem.all
     @orderitems = Orderitem.where(order_id: params[:id])
-
   end
 
   # GET /orders/new
@@ -78,4 +77,4 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:order_date, :user_id, :status)
     end
-end
+

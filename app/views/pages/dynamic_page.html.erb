@@ -7,7 +7,7 @@
   <div class="w3-container w3-display-bottomleft w3-margin-bottom"> 
 
 <div class="typewriter">
-    <div class="typewriter-text"><%= site_content.title %></div>
+    <div class="typewriter-text-admin"><%= site_content.title %></div>
 </div><br>
   </div>
   </div>
@@ -15,7 +15,7 @@
 <!--header/end-->
 
 <!-- About us -->
-<div class="w3-row-padding" id="work">
+
 <br>
 <div class="headers"><%= site_content.header1 %></div>
 <div class="descriptions"><%= site_content.description1 %></div>
@@ -23,7 +23,7 @@
 <div class="headers"><%= site_content.header2 %></div>
 <div class="descriptions"><%= site_content.description2 %></div>
 
-</div>
+
 <!-- About us/end -->
 
 
@@ -61,17 +61,16 @@
 
 
         <!------- Access to admin only----->
-        <% if session[:login] == 1 %> 
-        <%= link_to 'Show', site_content, :class => "button", :role => "button" %>
-        <%= link_to 'Edit', edit_site_content_path(site_content), :class => "button", :role => "button" %>
-        <%= link_to 'Destroy', site_content, method: :delete, data: { confirm: 'Are you sure?' },:class => "button", :role => "button" %>
-        <% end %>
+         <% if user_signed_in? %>
+    
+          <% if current_user.admin? %>
+            <%= link_to 'Show', site_content, :class => "button", :role => "button" %>
+            <%= link_to 'Edit', edit_site_content_path(site_content), :class => "button", :role => "button" %>
+            <%= link_to 'Destroy', site_content, method: :delete, data: { confirm: 'Are you sure?' },:class => "button", :role => "button" %>
+            <%= link_to 'New Site Content', new_site_content_path, :class => "button", :role => "button"%>
+          <% end %>
 
         <% end %>
- 
+    <% end %>
 </table>
 
-
-<% if session[:login] == 1 %>
-<%= link_to 'New Site Content', new_site_content_path, :class => "button", :role => "button"%>
- <% end %>

@@ -1,5 +1,5 @@
 <table style="padding:10px;margin-top:10px;margin-bottom:10px;">
-  <% @products.limit(4).order(:id).each do |product| %>
+  <% @products.limit(5).order(:id).each do |product| %>
       <tr>
         <td style="border:2px solid teal;padding:10px;width:50%;" class="w3-hover-teal">
           <div style="float:left;margin-right:50px;">
@@ -15,13 +15,18 @@
              <%= number_to_currency(product.price, :unit => "€") %>
           </div>
           <div>
-            <% if session[:login] ==1 %>
-              <%= link_to 'Edit', edit_item_path(item) %>
-              <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <%else%>
+            <% if user_signed_in? %>
+    
+              <% if current_user.admin? %>
+                <%= link_to 'Edit', edit_product_path(product) %>
+                <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+            <% else %>
             
               <a class="test" href="/cart/<%= product.id %>">Add to Cart</a>
-            <%end%>  
+              
+              <% end %>
+            
         </div>
         </td>
       </tr>

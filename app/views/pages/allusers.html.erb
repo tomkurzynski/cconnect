@@ -3,27 +3,77 @@
     <% if current_user.admin? %>
 
         <div class="w3-container w3-padding-64 w3-center" id="team">
-            <h1>Here are all the users</h1>
+            <h1>Registered users</h1>
             
             
-            <div class="mainCont">
-                
-                <h1>All The People...... So Many People....</h1>
-                
-            <% @users.each do |user| %>
-                <div class="itemhols">
-                   <h1>User Id: <%= user.id %></h1>
-                   <h1>email: <%= user.email %></h1>
-                   <h1>Admin: <%= user.admin %></h1>
-                   <p><a href="/upgrade/<%= user.id %>" class="button">Make Admin</a></p>
-                   <p><a href="/downgrade/<%= user.id %>" class="button">Make Not Admin</a></p>
-                </div>
-               
-            <% end %>
+            <div class="w3-container">
                 
                 
+                
+            <table class="w3-table-all w3-hoverable w3-hide-small">
+                <thead>
+                  <tr>
+                    <th>User Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Admin status</th>
+                    <th colspan="2"></th>
+                  </tr>
+                </thead>
+              
+                <tbody>
+                  <% @users.each do |user| %>
+                    <tr>
+                      <td><%= user.id %></td>
+                      <td><%= user.name %></td>
+                      <td><%= user.email %></td>
+                      <td><%= user.admin %></td>
+                      <td><a href="/upgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red">Make Admin</a></td>
+                      <td><a href="/downgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red">Remove admin status</a></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            
             </div>
-        </div> 
+        </div>
+        
+        
+        <!--This part will be hiddine on large screens-->
+        <div class="w3-container w3-hide-large w3-hide-medium">
+    
+            
+            
+            <% @users.each do |user| %>
+            <table class="w3-table-all w3-hide-large w3-hide-medium">
+                <thead>
+                    <tr>
+                      <th>Name: <%= user.name %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>User Id: <%= user.id %></td>
+                    </tr>
+                    <tr>
+                        <td>Email: <%= user.email %></td>
+                    </tr>
+                    <tr>
+                        <td>Admin status: <%= user.admin %></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="/upgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red">Make Admin</a>
+                            <a href="/downgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red">Remove admin status</a>
+                        </td>
+                    </tr>
+                </tbody>
+               
+                   
+                </div>
+            <% end %>
+        </div>
+        
     <% end %>
 
 

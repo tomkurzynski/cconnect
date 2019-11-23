@@ -41,13 +41,14 @@ Rails.application.routes.draw do
   
   
   
-  get '/upgrade/:id' => 'static_pages#upgrade'
-  get '/downgrade/:id' => 'static_pages#downgrade'
+  get '/upgrade/:id' => 'pages#upgrade'
+  get '/downgrade/:id' => 'pages#downgrade'
   get '/allusers' => 'pages#allusers'
   
   get '/aboutSend/:id' => 'pages#aboutSend'  
   
   get 'dynamic_page/:title' => 'pages#dynamic_page'
+  
 
   
   
