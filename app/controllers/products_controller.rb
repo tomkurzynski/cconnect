@@ -6,12 +6,14 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @categories = Category.all
+    
   end
   
 
   def search
      st = "%#{params[:q]}%"
      @products = Product.where("lower(title) like ? or lower(description) like?", st,st) 
+     @Search_term = "#{params[:q]}"
 
   end
   

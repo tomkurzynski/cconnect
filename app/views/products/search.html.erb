@@ -1,8 +1,18 @@
 <p id="notice"><%= notice %></p>
   
-  <div id="productsContainer">
+  <div id="productsContainer" style="margin-top:10%;">
   
-    <h1>Products</h1>
+  <h2>You Searched Our Product Catalog For <%= @Search_term %></h2>
+
+  <% if @products.length == 0  %>
+  <br/>
+  <h2>No products were found to match your search</h2>
+  <% end %>
+
+
+    
+    
+    
     <% @products.each do |product| %>
     <div class = "producthols">
         <h1><%= product.title %></h1>

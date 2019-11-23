@@ -14,7 +14,9 @@ class ApplicationController < ActionController::Base
   before_filter :commonMethod
   def commonMethod
      @categories = Category.all 
+     
   end
   
+
 
 end
