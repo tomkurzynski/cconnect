@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :filters
     resources :orders do 
       resources:orderitems
   end
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   post '/search' => 'products#search'
   get '/search' => 'pages#home'
   get 'category/:title' => 'pages#category'
-
+  get 'filter/:brand', to: 'pages#filter'
 
   get '/login' => 'user#login'
   get '/logout' => 'user#logout'

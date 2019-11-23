@@ -1,0 +1,7 @@
+<h1>Filters</h1>
+<br>
+
+  <% @filters.each do |filter| %>
+       <p><a href="/filter/<%= filter.brand %>"><%= filter.brand %>s</a></p>
+    
+    <% end %>

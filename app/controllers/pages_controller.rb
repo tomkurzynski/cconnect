@@ -3,7 +3,10 @@ class PagesController < ApplicationController
     #current_user.update_attribute :admin, true
     @categories = Category.all
     @products = Product.all
+
   end
+  
+
   
   def dynamic_page 
     catName = params[:title] 
@@ -37,6 +40,12 @@ class PagesController < ApplicationController
     Product.where("category like ? ", catName)
   end
   
+  def filter
+    filterName = params[:title]
+    @products = Product.where("category like ? ", filterName)
+  end
+
+  
   def aboutSend
 @order = Order.find(params[:id])
 @order.update_attribute(:status, "Paid with Paypal")
@@ -52,6 +61,7 @@ def paid
     #"Paid by User:#{current_user.id} #{current_user.name} #{current_user.surname}")
     
 end
+
 
 
 

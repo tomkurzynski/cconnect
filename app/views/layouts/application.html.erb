@@ -71,14 +71,15 @@
          
          <% if user_signed_in? %>
          
-        <%= link_to "",'/cart', class: "fa fa-shopping-cart fa-lg tdnone w3-bar-item w3-hide-small w3-right w3-hover-teal" %>
-        <%totalq=0%>
-          <% @cart.each do |id, quantity| %>
-            <% totalq += quantity %>
-           <% end %>
-        <span  style="padding-top:7px;padding-left:2px;" class="w3-right">(<%= totalq %>)Items</span>
+  <span style="padding-left:3px;"><%= link_to "",'/cart', class: "fa fa-shopping-cart fa-lg tdnone w3-bar-item w3-hide-small w3-right w3-hover-teal" %></span>
+        <span style="float:right;padding-top:8px;padding-left:5px;">Items (<%= @totalq %>)</span>
+        
+         
         
         
+               
+
+
          
        
        
