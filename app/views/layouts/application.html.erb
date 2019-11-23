@@ -67,33 +67,23 @@
   </div>
   <div style="padding-right:10px;">
     <span style="float:left;padding-top:5px;padding-left:18px;"><%=render 'layouts/search'%></span>
+         
+         
          <% if user_signed_in? %>
          
         <%= link_to "",'/cart', class: "fa fa-shopping-cart fa-lg tdnone w3-bar-item w3-hide-small w3-right w3-hover-teal" %>
         <%totalq=0%>
-        <span  style="padding-top:7px;" class="w3-right">(<%= totalq %>)Items</span>
-        
-        
-        
-        <% total = 0 %>  
-        <% totalq = 0 %>
-       
-        <% @cart.each do |id, quantity| %>
-        
-        <% product = Product.find_by_id(id) %>
-        
-  
-      
-            <td class="quantity"><%= quantity %></td>
-
-            
+          <% @cart.each do |id, quantity| %>
             <% totalq += quantity %>
-            
-           
-          
-         <% end %>
+           <% end %>
+        <span  style="padding-top:7px;padding-left:2px;" class="w3-right">(<%= totalq %>)Items</span>
+        
+        
+         
+       
+       
       
-            TotalQ: <%= totalq %>
+           
         
         
         
@@ -105,7 +95,7 @@
         
         
         
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal">Hi <%= current_user.name %></a> 
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-teal w3-right w3-hover-white">Hi <%= current_user.name %></a> 
     <% else %>
         <%= link_to 'Register', new_user_registration_path, class: "tdnone w3-bar-item w3-teal w3-hide-small w3-right w3-hover-white w3-border" %>
       <span><%= link_to 'Sign in', new_user_session_path, class: "tdnone w3-bar-item w3-teal w3-hide-small w3-right w3-hover-white w3-border" %>
