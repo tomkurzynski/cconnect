@@ -41,6 +41,7 @@ class PagesController < ApplicationController
 @order = Order.find(params[:id])
 @order.update_attribute(:status, "Paid with Paypal")
 
+
   end
   
 def paid
