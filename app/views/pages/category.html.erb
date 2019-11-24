@@ -19,7 +19,8 @@
         Weight: <%= product.weight %> kg</p>
         
         <p>
-          <%= link_to 'Show', product, :class => "button", :role => "button" %>
+          <%#= link_to 'Show', product, :class => "button", :role => "button" %>
+          <a href="/cart/<%= product.id %>" class="button">Add To Cart</a>
           
           <% if session[:login] == 1 %> 
             <%= link_to 'Edit', edit_product_path(product), :class => "button", :role => "button" %>
