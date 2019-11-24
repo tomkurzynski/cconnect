@@ -19,6 +19,7 @@
     <table id="customers">
         <% total = 0 %>  
         <% @totalq = 0 %>
+        <% @totalw = 0 %>
        
         <% @cart.each do |id, quantity| %>
         
@@ -39,7 +40,9 @@
             <a href="/reduce/<%= product.id %>" ><i class='fas fa-arrow-alt-circle-down'></i></a></td>
             <td class="price"><%= number_to_currency(product.price, :unit =>"€") %></td>
             <td class="quantity"><%= quantity %></td>
-            
+            <td class="quantity"><%= product.weight %></td>
+          
+          
             
             <td class="price"><%= number_to_currency(quantity * product.price, :unit =>"€") %></td>
             
@@ -48,14 +51,20 @@
         <tr>
             <% total += quantity * product.price %>
             <% @totalq += quantity %>
-            
+             <% @totalw += quantity * product.weight %>
+
+          
            
           </tr>
          <% end %>
+        
          <tr>
              <td>
             Grand Total: <%= number_to_currency(total, :unit => "€") %>
             TotalQ: <%= @totalq %>
+            TotalW: <%= @totalw %>
+            
+            
             
           
            
