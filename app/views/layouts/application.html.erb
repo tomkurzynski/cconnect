@@ -15,7 +15,7 @@
 <body id="myPage">
 
 <!-- Sidebar on click -->
-<nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
+<nav class="w3-sidebar w3-black w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close
     <i class="fa fa-remove"></i>
   </a>
@@ -23,16 +23,18 @@
   <% if user_signed_in? %>
     
     <% if current_user.admin? %>
-      <%= link_to "All Users", "/allusers", class: "w3-bar-item w3-button" %>
+    <p class="w3-large w3-border" >  <%= link_to "All Users", "/allusers", class: "w3-bar-item w3-button" %></p>
     <%end%>
-    <%= link_to 'Edit Profile', edit_user_registration_path, :method => :get, class: "w3-bar-item w3-button" %>
-    <a href="#" class="w3-bar-item w3-button">Shipping address</a>
-    <%= link_to "View Orders", orders_path, class: "w3-bar-item w3-button"%> 
-    <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "w3-bar-item w3-button" %>
+      <p class="w3-large w3-border"><%= link_to 'Edit Profile', edit_user_registration_path, :method => :get, class: "w3-bar-item w3-button" %></p>
+      <p class="w3-large w3-border"> <a href="#" class="w3-bar-item w3-button">Shipping address</a></p>
+      <p class="w3-large w3-border"><%= link_to "View Orders", orders_path, class: "w3-bar-item w3-button"%></p> 
+  <p class="w3-large w3-border"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "w3-bar-item w3-button" %></p>
+  
   <% end %>
-
-
+  
 </nav>
+
+
 
 <!-- Navbar -->
 <div class="w3-top">
@@ -170,8 +172,11 @@
 // Script for side navigation
 function w3_open() {
   var x = document.getElementById("mySidebar");
-  x.style.width = "300px";
+  x.style.width = "250px";
   x.style.paddingTop = "10%";
+  x.style.paddingRight = "8px";
+  
+ 
   x.style.display = "block";
 }
 // Close side navigation
