@@ -1,95 +1,93 @@
-<div style="margin-top:10%;">
+<div class="w3-container w3-padding-64 w3-center" id="team">
 
-You just placed order no: <%= @orders.id %> 	
-
-<table id="customers">
-    <tr>
-         
-          <% @orders.id do |order| %>  
-
-       <td>Order reference for the order you just placed <%= order.id %></td>
-       
+    You just placed order no: <%= @orders.id %> 	
+    
+    <table id="customers">
+        <tr>
+        <% @orders.id do |order| %>  
+            <td>Order reference for the order you just placed <%= order.id %></td>
         <% end %>
-    </tr>
-</table>    
-
-
-
-
-
-             
-             
-    
-    
-<table id="customers">
-     <% @total = 0 %>
-    <% @orderitems.each do |id,quantity| %>
-      <tr>
-        <% item = Orderitem.find_by_id(id) %>
-       
-        <td><%= item.title %></td>
-        <td><%= item.quantity %></td>
-       
-       <td><%=number_to_currency(item.price, :unit => "€")%></td> 
-       <td><%= number_to_currency(item.quantity * item.price, :unit => "€") %></td>
-       </tr>
-       
-       <% timx = (item.quantity * item.price)%>   
-
-     
-     
-      <% @total += timx %>
-      
-      </tr>
-    <% end %>
-    
-    
-    <% if @total > 100 %>
-    
-    <% shipping = 0 %>
-    
-    <% else %>
-    <% shipping = 30 %>
-    
-    <% end %>
-    
-      <% @overall = shipping + @total%>
-
-    
-    <tr>
-        
-       <td>Order Total: &euro; <%= @total %></td>
-       
-       <% if @total > 100 %>
-       
-       <td>Shipping Free you spent Enough</td>
-       
-       <% else %>
-       <td>Shipping €30</td>
-       <% end %>
-       <td>Grand Total: &euro; <%= @overall %></td>
-       
-      </tr>
-      
-      <tr>
-          <td><h2>  <a href="/paid/<%= @order.id %>" class="button">Pay Now</a></h2></td>
-          
-      </tr>
-
-</table>
-
-     <!-- Paypal button --->
-          <tr>
-        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="sb-43xm74622398@business.example.com">
-        <input type="hidden" name="item_name" value="Order Number <%= @order.id %>">
-        <input type="hidden" name="currency_code" value="EUR">
-        <input type="hidden" name="amount" value="<%= @overall %>">
-        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-        <input type="hidden" name="return" value="https://be8a03d039524ceeaf85d9ba0a6c5ade.vfs.cloud9.us-east-1.amazonaws.com/aboutSend/<%= @order.id %>" >
-        <input type="hidden" name="notify_url" value="https://be8a03d039524ceeaf85d9ba0a6c5ade.vfs.cloud9.us-east-1.amazonaws.com/aboutSend/<%= @order.id %>">
-        </form> 
         </tr>
-          
+    </table>    
+    
+    
+    
+    <table class="w3-table w3-border">
+        <tr>
+            <td colspan="4"><h3><b>Order details</b></h3></td>
+        </tr>
+        <% @total = 0 %>
+        <% @orderitems.each do |id,quantity| %>
+            <tr>
+                <% item = Orderitem.find_by_id(id) %>
+                <td><%= item.title %></td>
+                <td>Qty: <%= item.quantity %></td>
+                <td class="w3-right-align"><%=number_to_currency(item.price, :unit => "€")%></td>
+                <td class="w3-right-align"><%= number_to_currency(item.quantity * item.price, :unit => "€") %></td>
+            </tr>
+            <% timx = (item.quantity * item.price)%>
+            <% @total += timx %>
+        <% end %>
+        
+        <tr>
+            <td colspan="4"></td>
+        </tr>
+        
+            <% if @total > 100 %>
+                <% shipping = 0 %>
+            <% else %>
+                <% shipping = 30 %>
+            <% end %>
+            
+            
+            
+        <tr>
+            <td colspan="2"></td>
+            <td>Order Total:</td>
+            <td class="w3-right-align">&euro; <%= @total %></td>
+        </tr>
+        
+        <% if current_user.loyalcust == true %>
+            <td colspan="2"></td>
+            <td>Discount for loyal customers:</td>
+            <td class="w3-right-align">10% <% @total = @total * 0.9 %></td>
+        <% end %>
+        
+        <tr>
+            <td colspan="2"></td>
+            <% if @total > 100 %>
+                <td>You are aligible for free shipping</td>
+           <% else %>
+               <td>Shipping</td>
+           <% end %>
+            <td class="w3-right-align">&euro;<%= shipping %></td>
+        </tr>
+        
+        <% @overall = shipping + @total%>
+        
+        <tr>
+            <td colspan="2"></td>
+            <td><b>Grand Total:</b></td>
+            <td class="w3-right-align"><b>&euro; <%= @overall %></b></td>
+        </tr>
+        
+        <tr>
+            <td colspan="3"></td>
+            <td class="w3-right-align">
+                <!-- Paypal button --->
+                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="sb-43xm74622398@business.example.com">
+                    <input type="hidden" name="item_name" value="Order Number <%= @order.id %>">
+                    <input type="hidden" name="currency_code" value="EUR">
+                    <input type="hidden" name="amount" value="<%= @overall %>">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+                    <input type="hidden" name="return" value="https://be8a03d039524ceeaf85d9ba0a6c5ade.vfs.cloud9.us-east-1.amazonaws.com/aboutSend/<%= @order.id %>" >
+                    <input type="hidden" name="notify_url" value="https://be8a03d039524ceeaf85d9ba0a6c5ade.vfs.cloud9.us-east-1.amazonaws.com/aboutSend/<%= @order.id %>">
+                </form> 
+            </td>
+        </tr>
+        
+    </table>
+
 </div>

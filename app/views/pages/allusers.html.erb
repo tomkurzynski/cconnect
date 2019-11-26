@@ -54,7 +54,7 @@
             
             
             <% @users.each do |user| %>
-            <table class="w3-table-all w3-hide-large w3-hide-medium">
+            <table class="w3-table-all w3-hide-large w3-hide-medium w3-container">
                 <thead>
                     <tr>
                       <th>Name: <%= user.name %></th>
@@ -68,12 +68,21 @@
                         <td>Email: <%= user.email %></td>
                     </tr>
                     <tr>
-                        <td>Admin status: <%= user.admin %></td>
+                        <td>Admin status: <b><%= user.admin %></b></td>
                     </tr>
                     <tr>
-                        <td>
-                            <a href="/upgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red">Make Admin</a>
-                            <a href="/downgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red">Remove admin status</a>
+                        <td class="w3-center">Set admin status:
+                          <a href="/upgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red"><i class="fa fa-arrow-circle-o-up fa-2x" aria-hidden="true"></i></a>
+                          <a href="/downgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red"><i class="fa fa-arrow-circle-o-down fa-2x" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Loyal cust.: <b><%= user.loyalcust %></b></td>
+                    </tr>
+                    <tr>
+                        <td class="w3-center">Set loyalty bonus:
+                            <a href="/isloyal/<%= user.id %>" class="w3-button w3-teal w3-hover-red"><i class="fa fa-arrow-circle-o-up fa-2x" aria-hidden="true"></i></a>
+                            <a href="/isnotloyal/<%= user.id %>" class="w3-button w3-teal w3-hover-red"><i class="fa fa-arrow-circle-o-down fa-2x" aria-hidden="true"></i></a>
                         </td>
                     </tr>
                 </tbody><br>

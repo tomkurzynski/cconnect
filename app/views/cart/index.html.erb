@@ -1,8 +1,10 @@
 
-<div style="margin-top:10%;">
+<div>
 <% if @cart.empty? %>
-<p>Need to add functionality here to display recommended products maybe</p>
-<a href="/products" class="button">Continue Shopping</a>
+<p style="margin-top:10%;">You don't have anyting in your cart!<br>
+You can check out our most popular products below <i class="fa fa-smile-o"></i> </p>
+<%=render 'layouts/popular'%>
+<a href="/products" class="w3-button w3-teal w3-hover-black">All Products</a>
 <%else%>
 
 
@@ -17,7 +19,7 @@
 
 
     
-    <table class="w3-container">
+    <table class="w3-bordered" style="margin-top:5%;">
         <% total = 0 %>  
         <% @totalq = 0 %>
         <% @totalw = 0 %>
@@ -76,7 +78,7 @@
              <td>
             <a href="/cart/clearcart" class="w3-button w3-teal w3-hover-black">Empty Cart</a> 
             </td>
-            <td><a href="/checkout" class="w3-button w3-teal w3-hover-black">Checkout</a></td>
+            <td><a href="/checkout" class="w3-button w3-teal w3-hover-black">Go to checkout</a></td>
           </tr>
            
     </table>

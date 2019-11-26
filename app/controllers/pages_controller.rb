@@ -67,6 +67,7 @@ class PagesController < ApplicationController
   end
   
 def paid
+    
     # redirect_to "/cart/clear"
     flash[:notice] = 'Transaction Complete'
     @order = Order.last

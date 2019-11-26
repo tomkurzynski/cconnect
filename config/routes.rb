@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
 
 
-  get '/checkout' => 'cart#createOrder' 
+
   get '/remove/:id' => 'cart#remove'
   get '/reduce/:id' => 'cart#reduce'
   get '/add/:id' => 'cart#add'

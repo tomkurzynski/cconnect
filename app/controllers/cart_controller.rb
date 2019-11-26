@@ -38,6 +38,7 @@ end
   
   
  def index
+   @products = Product.all
     # passes a cart to display
     if session[:cart] then
       @cart = session[:cart]
