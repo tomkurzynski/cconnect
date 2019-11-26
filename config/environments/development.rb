@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.action_mailer.default_url_options = { :host => '127.0.0.1:3000'}
+  config.action_mailer.default_url_options = {host:'localhost', port:'3000'}
   
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -11,7 +11,7 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
-  # Show full error reports.
+  # -------------Show full error reports.
   #config.consider_all_requests_local = true
   #config.action_mailer.default_url_options = {host:'localhost', port:'8080'}
 
@@ -30,10 +30,14 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
+  # -----Action Mailer------- Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

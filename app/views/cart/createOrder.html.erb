@@ -1,11 +1,11 @@
 <div class="w3-container w3-padding-64 w3-center" id="team">
 
-    You just placed order no: <%= @orders.id %> 	
+   	
     
     <table id="customers">
         <tr>
         <% @orders.id do |order| %>  
-            <td>Order reference for the order you just placed <%= order.id %></td>
+            <td>Order reference for the order you just placed <%= @order.id %></td>
         <% end %>
         </tr>
     </table>    
@@ -15,7 +15,7 @@
     <table class="w3-table w3-border">
         <tr>
             <td colspan="4"><h3><b>Order details</b></h3></td>
-        </tr>
+   
         <% @total = 0 %>
         <% @orderitems.each do |id,quantity| %>
             <tr>
@@ -32,20 +32,24 @@
         <tr>
             <td colspan="4"></td>
         </tr>
-        
-            <% if @total > 100 %>
-                <% shipping = 0 %>
-            <% else %>
-                <% shipping = 30 %>
-            <% end %>
-            
-            
-            
         <tr>
             <td colspan="2"></td>
             <td>Order Total:</td>
             <td class="w3-right-align">&euro; <%= @total %></td>
         </tr>
+        
+        <tr>
+            <td colspan="2"></td>
+            <td>Total Weight of Products:</td>
+            <% @totalw = 0 %>
+            <% @cart.each do |id, quantity| %>
+            <% product = Product.find_by_id(id) %>
+            
+            <% @totalw += quantity * product.weight %>
+             <% end %>
+            <td class="w3-right-align"><%= @totalw %>(Kg)</td>
+        </tr>
+
         
         <% if current_user.loyalcust == true %>
             <td colspan="2"></td>
@@ -55,8 +59,26 @@
         
         <tr>
             <td colspan="2"></td>
+            <% shipping = 0 %>
+            <% if @total > 100 %>
+                <% shipping = 0 %>
+            <% else %>
+                <%if @totalw >= 20 %>
+                <%shipping = 25 %>
+                <% else %>
+                <%shipping = 5%>
+                <%end%>
+                
+            <% end %>
+            
+         
+            
+            
+            
             <% if @total > 100 %>
                 <td>You are aligible for free shipping</td>
+
+
            <% else %>
                <td>Shipping</td>
            <% end %>
