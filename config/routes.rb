@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :products
   
   
+  
   devise_for :users do 
     resources :orders 
   end
@@ -45,6 +46,8 @@ Rails.application.routes.draw do
   get '/upgrade/:id' => 'pages#upgrade'
   get '/downgrade/:id' => 'pages#downgrade'
   get '/allusers' => 'pages#allusers'
+  get '/isloyal/:id' => 'pages#isloyal'
+  get '/isnotloyal/:id' => 'pages#isnotloyal'
   
   get '/aboutSend/:id' => 'pages#aboutSend'  
   

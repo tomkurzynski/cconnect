@@ -1,0 +1,9 @@
+<% if @cart.empty? %>
+<% totalq = 0 %>
+<%else%>
+<% @cart.each do |id, quantity| %>
+<%= quantity %>
+<% totalq += quantity %>
+<% end %>
+<%= @totalq %>
+<% end %>

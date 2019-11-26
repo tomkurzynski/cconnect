@@ -17,7 +17,10 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Admin status</th>
-                    <th colspan="2"></th>
+                    <th>Change admin status</th>
+                    <th>Loyal cust.</th>
+                    <th>Add/Remove loyalty bonus</th>
+                    
                   </tr>
                 </thead>
               
@@ -28,8 +31,14 @@
                       <td><%= user.name %></td>
                       <td><%= user.email %></td>
                       <td><%= user.admin %></td>
-                      <td><a href="/upgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red">Make Admin</a></td>
-                      <td><a href="/downgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red">Remove admin status</a></td>
+                      
+                      <td ><a href="/upgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red"><i class="fa fa-arrow-circle-o-up fa-2x" aria-hidden="true"></i></a>
+                      <a href="/downgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red"><i class="fa fa-arrow-circle-o-down fa-2x" aria-hidden="true"></i></a></td>
+                      <td><%= user.loyalcust %></td>
+                      <td>
+                          <a href="/isloyal/<%= user.id %>" class="w3-button w3-teal w3-hover-red"><i class="fa fa-arrow-circle-o-up fa-2x" aria-hidden="true"></i></a>
+                          <a href="/isnotloyal/<%= user.id %>" class="w3-button w3-teal w3-hover-red"><i class="fa fa-arrow-circle-o-down fa-2x" aria-hidden="true"></i></a>
+                      </td>
                     </tr>
                   <% end %>
                 </tbody>
