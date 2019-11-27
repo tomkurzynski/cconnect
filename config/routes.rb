@@ -32,13 +32,13 @@ Rails.application.routes.draw do
   get '/login' => 'user#login'
   get '/logout' => 'user#logout'
 
-
+get '/cart/clearcart' => 'cart#clear'
 
 
   get '/remove/:id' => 'cart#remove'
   get '/reduce/:id' => 'cart#reduce'
   get '/add/:id' => 'cart#add'
-  get '/cart/clearcart' => 'cart#clearcart'
+  
   get '/cart' => 'cart#index'
   get '/cart/:id' => 'cart#add'
   
@@ -57,6 +57,8 @@ Rails.application.routes.draw do
   get 'dynamic_page/:title' => 'pages#dynamic_page'
   
   get 'brand/:title', to: 'pages#brand'
+  get 'price/:description', to: 'pages#price'
+  get 'weight/:description', to: 'pages#weight'
   
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

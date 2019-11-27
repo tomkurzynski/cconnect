@@ -8,7 +8,6 @@ class OrdersController < ApplicationController
     @orders = Order.all
     #else
      # redirect_to '/'
-    end
   end
 
   # GET /orders/1
@@ -78,3 +77,4 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:order_date, :user_id, :status)
     end
 
+end

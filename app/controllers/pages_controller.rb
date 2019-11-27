@@ -75,6 +75,16 @@ def brand
     @products = Product.where("brand like ? ", brandName)
 end
 
+def price
+    priceName = params[:title]
+    @products = price.where("price like ?", priceName)
+end
+
+def weight
+    weightName = params[:title]
+    @products = Product.where("weight between ? ", weightName)
+end
+
 
 
 

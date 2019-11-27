@@ -60,14 +60,17 @@
 </div>
 
 
-        <!------- Access to admin only----->
+        <!------- Access to admin only
+        Only leaving Edit button showing. Admins can edit the content currently on the page.
+        ----->
          <% if user_signed_in? %>
     
           <% if current_user.admin? %>
-            <%= link_to 'Show', site_content, :class => "button", :role => "button" %>
-            <%= link_to 'Edit', edit_site_content_path(site_content), :class => "button", :role => "button" %>
-            <%= link_to 'Destroy', site_content, method: :delete, data: { confirm: 'Are you sure?' },:class => "button", :role => "button" %>
-            <%= link_to 'New Site Content', new_site_content_path, :class => "button", :role => "button"%>
+            <%#= link_to 'Show', site_content, :class => "button", :role => "button" %>
+            <%= link_to 'Edit', edit_site_content_path(site_content), :class => "w3-button w3-teal w3-hover-black", :role => "button" %>
+            <%#= link_to 'Destroy', site_content, method: :delete, data: { confirm: 'Are you sure?' },:class => "button", :role => "button" %>
+            <!--Removing below link for now as currently we don't have functionality to show new content -->
+            <%#= link_to 'New Site Content', new_site_content_path, :class => "button", :role => "button"%>
           <% end %>
 
         <% end %>

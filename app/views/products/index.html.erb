@@ -1,19 +1,34 @@
 <p id="notice"><%= notice %></p>
   <br>
-    
+  <br> 
    <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-hover-sand" title="Brands"><%=link_to "All Brands","/brands",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
-    <div class="w3-dropdown-content w3-brown">
+    <button class="w3-button w3-hover-teal" title="Brands"><%=link_to "All Brands","/brands",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-teal">
       <%=render 'layouts/brands'%>
     </div>  
   </div>
   
   <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-hover-sand" title="Categories"><%=link_to "All Categories","/categories",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
-    <div class="w3-dropdown-content w3-brown">
+    <button class="w3-button w3-hover-teal" title="Categories"><%=link_to "All Categories","/categories",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-teal">
       <%=render 'layouts/categories'%>
     </div>  
   </div>
+  
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-hover-teal" title="Prices"><%=link_to "All Prices","/prices",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-teal">
+      <%=render 'layouts/prices'%>
+    </div>  
+  </div>
+  
+   <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-hover-teal" title="Weights"><%=link_to "All Weights","/weights",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-teal">
+      <%=render 'layouts/weights'%>
+    </div>  
+  </div>
+  
   
   <div id="productsContainer">
   
@@ -39,7 +54,7 @@
                 <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "w3-button w3-teal", :role => "button" %>
                 <%= link_to 'Show', product, :class => "w3-button w3-teal", :role => "button" %>
               <% end %>
-              
+              <a href="/cart/<%= product.id %>" class="w3-button w3-teal">Add To Cart</a>
             <% else %>
               <a href="/cart/<%= product.id %>" class="w3-button w3-teal">Add To Cart</a>
           <% end %>
@@ -51,8 +66,13 @@
 
 <br>
 
-<div><%= link_to 'New Brand', new_brand_path, :class =>"w3-button w3-teal", :role=>"button"  %><div>
+<div><%= link_to 'New Brand', new_brand_path, :class =>"w3-button w3-teal", :role=>"button"  %>
+      <%= link_to 'New Price', new_price_path, :class =>"w3-button w3-teal", :role=>"button"  %>
+      <%= link_to 'New Category', new_category_path, :class =>"w3-button w3-teal", :role=>"button"  %>
+      <%= link_to 'New Weight', new_weight_path, :class =>"w3-button w3-teal", :role=>"button"  %>
+
+</div>
 
 <% if session[:login] == 1 %>    
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path, :class =>"w3-button w3-teal", :role=>"button"%>
 <%end%>

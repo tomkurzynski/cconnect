@@ -1,0 +1,7 @@
+<% @prices.each do |price| %>
+    <div style="border:1px solid black; width:200px;">
+           
+        <p><a class="hover-black tdnone" href="/price/<%= price.description %>"><%= price.description %>s</a></p>
+    </div>
+    
+<% end %>
