@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :weights
+  resources :prices
   resources :brands
   resources :filters
     resources :orders do 
