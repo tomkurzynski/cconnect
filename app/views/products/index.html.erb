@@ -1,51 +1,57 @@
 <p id="notice"><%= notice %></p>
+  <br>
+    
+   <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-hover-sand" title="Brands"><%=link_to "All Brands","/brands",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-brown">
+      <%=render 'layouts/brands'%>
+    </div>  
+  </div>
+  
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-hover-sand" title="Categories"><%=link_to "All Categories","/categories",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-brown">
+      <%=render 'layouts/categories'%>
+    </div>  
+  </div>
   
   <div id="productsContainer">
   
-    <h1>Products</h1>
-    
-    <%=render 'layouts/categories'%>
+    <h1>All Products</h1>
     
     <br>
-    
-    <%=render 'layouts/filters'%>
-    
     <% @products.each do |product| %>
-    <div class = "producthols">
-        <h1><%= product.title %></h1>
-        <%= link_to (image_tag product.image_url, :class => "productholsIm", :style => "height:100px; width:100px"), product %>
-        <p><%= product.description %></p>
-        <p>Price: <%=number_to_currency(product.price, :unit=> "€")%>
-        Category: <%= product.category %>
-        Brand: <%= product.brand %>
-        <br>
-        Weight: <%= product.weight %> kg</p>
+    <div class = "w3-panel w3-card-2" style = "width: 30%; display: inline-block;">
+        <div><h3><%= product.title %></h3></div>
+        <%= link_to (image_tag product.image_url, :class => "productholsIm", :style => "height:200px; width:200px"), product %>
+        <div><p><%= product.description %></p></div>
+        <div>Price: <%=number_to_currency(product.price, :unit=> "€")%></div>
+        <div>Category: <%= product.category %></div>
+        <div>Brand: <%= product.brand %></div>
+        <div>Weight: <%= product.weight %> kg</div>
         
         <p>
          
           
            <% if user_signed_in? %>
               <% if current_user.admin? %>
-                <%= link_to 'Edit', edit_product_path(product), :class => "button", :role => "button" %>
-                <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
-                
+                <%= link_to 'Edit', edit_product_path(product), :class => "w3-button w3-teal", :role => "button" %>
+                <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "w3-button w3-teal", :role => "button" %>
+                <%= link_to 'Show', product, :class => "w3-button w3-teal", :role => "button" %>
               <% end %>
               
-              <%= link_to 'Show', product, :class => "button", :role => "button" %>
-              <a href="/cart/<%= product.id %>" class="button">Add To Cart</a>
-              
             <% else %>
-              <%= link_to 'Show', product, :class => "button", :role => "button" %>
-              <a href="/cart/<%= product.id %>" class="button">Add To Cart</a>
+              <a href="/cart/<%= product.id %>" class="w3-button w3-teal">Add To Cart</a>
           <% end %>
         </p>
     </div>
-       
+    
     
     <% end %>
-  
 
 <br>
+
+<div><%= link_to 'New Brand', new_brand_path, :class =>"w3-button w3-teal", :role=>"button"  %><div>
 
 <% if session[:login] == 1 %>    
 <%= link_to 'New Product', new_product_path %>

@@ -12,6 +12,9 @@
         <%= product.category %>
         <br>
         <%= product.brand %>
+        <br>
+        <%= product.weight %>
+
         </p>
         <p>        
          
@@ -20,8 +23,8 @@
         
 
         <% if session[:login] == 1 %> 
-        <%= link_to 'Edit', edit_item_path(item), :class =>"button", :role=>"button" %>
-        <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"button",           :role=>"button" %>
+        <%= link_to 'Edit', edit_product_path(product), :class =>"button", :role=>"button" %>
+        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"button",           :role=>"button" %>
         
         <% end %>
         </p>

@@ -49,13 +49,7 @@ class PagesController < ApplicationController
   
   def category
     catName = params[:title]
-    @products = 
-    Product.where("category like ? ", catName)
-  end
-  
-  def filter
-    filterName = params[:title]
-    @products = Product.where("category like ? ", filterName)
+    @products = Product.where("category like ? ", catName)
   end
 
   
@@ -75,6 +69,13 @@ def paid
     #"Paid by User:#{current_user.id} #{current_user.name} #{current_user.surname}")
     
 end
+
+def brand
+    brandName = params[:title]
+    @products = Product.where("brand like ? ", brandName)
+end
+
+
 
 
 

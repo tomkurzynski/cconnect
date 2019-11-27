@@ -63,8 +63,8 @@
             <% if @total > 100 %>
                 <% shipping = 0 %>
             <% else %>
-                <%if @totalw >= 20 %>
-                <%shipping = 25 %>
+                <%if @totalw > 20 %>
+                <%shipping = @total * 0.1 %>
                 <% else %>
                 <%shipping = 5%>
                 <%end%>

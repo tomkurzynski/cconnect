@@ -1,0 +1,8 @@
+<div style="border:1px solid black; width:100px;">
+  <% @brands.each do |brand| %>
+       <div>
+        <p><a class="hover-black tdnone" href="/brand/<%= brand.title %>"><%= brand.title %>s</a></p>       
+        </div>
+    
+    <% end %>
+</div>

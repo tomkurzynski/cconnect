@@ -1,5 +1,4 @@
-
-<div>
+<div class="w3-container w3-responsive w3-padding-64">
 <% if @cart.empty? %>
 <p style="margin-top:10%;">You don't have anyting in your cart!<br>
 You can check out our most popular products below <i class="fa fa-smile-o"></i> </p>
@@ -17,9 +16,8 @@ You can check out our most popular products below <i class="fa fa-smile-o"></i> 
 
 
 
-
     
-    <table class="w3-bordered" style="margin-top:5%;">
+    <table class="w3-table w3-striped w3-bordered">
         <% total = 0 %>  
         <% @totalq = 0 %>
         <% @totalw = 0 %>
@@ -30,58 +28,66 @@ You can check out our most popular products below <i class="fa fa-smile-o"></i> 
         
         <tr>
             <td>
-                <div>
-                    <%= link_to (image_tag product.image_url, :style =>"height:50px;width:50px;"), product %>
-                </div>
-                
+                <%= link_to (image_tag product.image_url, :style =>"height:50px;width:50px;"), product %>
             </td>
-            
-            <td><%= link_to product.title, product, :style =>"text-decoration:none;" %></td>
-            <td><a href="/remove/<%= product.id %>" class="w-3button w3-hover-black" style="text-decoration:none;">X</a></td>
-            <td>
-            <a href="/add/<%= product.id %>" ><i class='fas fa-arrow-alt-circle-up'></i></a>    
-            <a href="/reduce/<%= product.id %>" ><i class='fas fa-arrow-alt-circle-down'></i></a></td>
-            <td><%= number_to_currency(product.price, :unit =>"€") %></td>
-            <td><%= quantity %></td>
-            <td><%= product.weight %></td>
-          
-          
-            
-            <td><%= number_to_currency(quantity * product.price, :unit =>"€") %></td>
-            
         </tr>
-        
+            
+            
         <tr>
+            <td>
+            <%= link_to product.title, product, :style =>"text-decoration:none;" %>
+            </td>
+        
+            
+            <td><a href="/remove/<%= product.id %>" class="w-3button w3-hover-black w3-teal" style="text-decoration:none;">X</a></td>
+            <td>Qty: <%= quantity %></td>
+            <td><%= product.weight %>Kg</td>
+            <td><a href="/add/<%= product.id %>" ><i class='fas fa-arrow-alt-circle-up w3-teal w3-hover-black'></i></a></td>    
+            <td><a href="/reduce/<%= product.id %>" ><i class='fas fa-arrow-alt-circle-down w3-teal w3-hover-black'></i></a></td>
+            
+            
+            <tr>
+            <td><%= number_to_currency(product.price, :unit =>"€") %> per item</td>
+            <td><%= number_to_currency(quantity * product.price, :unit =>"€") %> total</td>
+            
+  
+        
             <% total += quantity * product.price %>
             <% @totalq += quantity %>
-             <% @totalw += quantity * product.weight %>
+            <% @totalw += quantity * product.weight %>
            
-          </tr>
+          
          <% end %>
         
-         <tr>
-             <td>
-            Grand Total: <%= number_to_currency(total, :unit => "€") %>
-            TotalQ: <%= @totalq %>
-            TotalW: <%= @totalw %>
-           
-            </td>
-          </tr>
+
           
           
           
           
-           <tr>
-             <td>
-            <a href="/products" class="w3-button w3-teal w3-hover-black">Continue Shopping</a> 
-            </td>
-             <td>
-            <a href="/cart/clearcart" class="w3-button w3-teal w3-hover-black">Empty Cart</a> 
-            </td>
-            <td><a href="/checkout" class="w3-button w3-teal w3-hover-black">Go to checkout</a></td>
-          </tr>
+
            
     </table>
+     
+    <table class="w3-table w3-bordered">         
+            <br>
+            <tr><td class="w3-right-align"><p><strong>Total Quantity: <%= @totalq %></strong></p></td></tr>
+            <tr><td class="w3-right-align"><p><strong>Total Weight: <%= @totalw %>Kg</strong></p></td></tr>
+            <tr><td class="w3-right-align"><p><strong>Grand Total: <%= number_to_currency(total, :unit => "€") %></strong></p></td></tr>
+            
+            
+         
+    </table>
+    
+    
+
+             
+            <a href="/products" class="w3-button w3-teal w3-hover-black w3-border">Continue Shopping</a> 
+            
+            
+            <a href="/cart/clearcart" class="w3-button w3-teal w3-hover-black">Empty Cart</a> 
+            
+            <a href="/checkout" class="w3-button w3-teal w3-hover-black">Go to checkout</a>
+         
       </div>
 
 <% end %>

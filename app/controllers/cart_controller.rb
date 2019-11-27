@@ -48,7 +48,6 @@ end
   end
 
 
-
   def reduce
     id = params[:id]
     cart = session[:cart]

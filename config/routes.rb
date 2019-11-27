@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :brands
   resources :filters
     resources :orders do 
       resources:orderitems
@@ -53,7 +54,7 @@ Rails.application.routes.draw do
   
   get 'dynamic_page/:title' => 'pages#dynamic_page'
   
-
+  get 'brand/:title', to: 'pages#brand'
   
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

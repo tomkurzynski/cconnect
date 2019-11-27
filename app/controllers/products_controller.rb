@@ -4,9 +4,9 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @filters = Filter.all
     @products = Product.all
     @categories = Category.all
+    @brands = Brand.all
     
   end
   
