@@ -1,6 +1,15 @@
 class CartController < ApplicationController
   before_action :authenticate_user!
   def index
+    
+    #code below for testing
+    #@user = User.find(current_user.id)
+    # @xxx = Order.maximum(id)
+    #@lastorders = Orderitem.all
+    #Above code is testing for displaying last order by user
+    
+    
+    
     @products = Product.all
     # passes a cart to display
     if session[:cart] then
@@ -97,7 +106,11 @@ end
      
     @orderitems = Orderitem.where(order_id: Order.last)
     
+
+    
     session[:cart] = nil
+    session[:howmuch]=0
+    session[:gt]=0
     end
   
     

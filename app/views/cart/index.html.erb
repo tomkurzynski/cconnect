@@ -1,6 +1,16 @@
 <div class="w3-container w3-responsive w3-padding-64">
 <% if @cart.empty? %>
 <p style="margin-top:10%;">You don't have anyting in your cart!<br>
+
+    <!--Code needs to be worked on -->
+    <%# @lastorders.each do |orderitem| %>
+    <%#= orderitem.order_id %>
+    <%# end %>
+
+
+
+
+
 You can check out our most popular products below <i class="fa fa-smile-o"></i> </p>
 <%=render 'layouts/popular'%>
 <a href="/products" class="w3-button w3-teal w3-hover-black">All Products</a>
@@ -27,13 +37,13 @@ You can check out our most popular products below <i class="fa fa-smile-o"></i> 
         <% product = Product.find_by_id(id) %>
         
         <tr>
-            <td>
-                <%= link_to (image_tag product.image_url, :style =>"height:50px;width:50px;"), product %>
-            </td>
+
         </tr>
             
             
-        <tr>
+        <tr>            <td>
+                <%= link_to (image_tag product.image_url, :style =>"height:50px;width:50px;"), product %>
+            </td>
             <td>
             <%= link_to product.title, product, :style =>"text-decoration:none;" %>
             </td>
@@ -44,11 +54,12 @@ You can check out our most popular products below <i class="fa fa-smile-o"></i> 
             <td><%= product.weight %>Kg</td>
             <td><a href="/add/<%= product.id %>" ><i class='fas fa-arrow-alt-circle-up w3-teal w3-hover-black'></i></a></td>    
             <td><a href="/reduce/<%= product.id %>" ><i class='fas fa-arrow-alt-circle-down w3-teal w3-hover-black'></i></a></td>
+            <td><%= number_to_currency(product.price, :unit =>"€") %> per item</td>
+            <td><%= number_to_currency(quantity * product.price, :unit =>"€") %> total</td>
             
             
             <tr>
-            <td><%= number_to_currency(product.price, :unit =>"€") %> per item</td>
-            <td><%= number_to_currency(quantity * product.price, :unit =>"€") %> total</td>
+            
             
   
         

@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     #current_user.update_attribute :admin, true
     @categories = Category.all
     @products = Product.all
-    #session[:cart] = nil
+    # =>session[:cart] = nil
 
   end
   
@@ -57,6 +57,7 @@ class PagesController < ApplicationController
   def aboutSend
 @order = Order.find(params[:id])
 @order.update_attribute(:status, "Paid with Paypal")
+redirect_to '/cart/clearcart'
 
 
   end
