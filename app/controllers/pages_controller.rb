@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     #current_user.update_attribute :admin, true
     @categories = Category.all
     @products = Product.all
+    #session[:cart] = nil
 
   end
   

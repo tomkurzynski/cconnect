@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 #SEO--
-#gem 'meta-tags'
+gem 'meta-tags'
 
 gem 'devise', '~> 4.6.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

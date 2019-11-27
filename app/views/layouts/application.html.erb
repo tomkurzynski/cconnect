@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <%= display_meta_tags site: 'Cconnect' %>
+</head>
 <title>Coffee Connect</title>
 <%= csrf_meta_tags %>
 
@@ -75,7 +78,7 @@
          <% if user_signed_in? %>
          
   <span style="padding-left:3px;"><%= link_to "",'/cart', class: "fa fa-shopping-cart fa-lg tdnone w3-bar-item w3-hide-small w3-right w3-hover-teal" %></span>
-      
+        
         <span style="float:right;padding-top:8px;padding-left:5px;">
         (Qty: <%= session[:howmuch] %>)(Total: €<%= session[:gt] %>)</span>
         

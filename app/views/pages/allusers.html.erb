@@ -49,12 +49,12 @@
         
         
         <!--This part will be hidden on large screens-->
-        <div class="w3-container w3-hide-large w3-hide-medium" id="team">
+        <div class="w3-hide-large w3-hide-medium w3-container">
     
             
             
             <% @users.each do |user| %>
-            <table class="w3-table-all w3-hide-large w3-hide-medium w3-container">
+            <table class="w3-table-all w3-hide-large w3-hide-medium ">
                 <thead>
                     <tr>
                       <th>Name: <%= user.name %></th>
