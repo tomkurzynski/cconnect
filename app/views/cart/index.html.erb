@@ -1,19 +1,32 @@
 <div class="w3-container w3-responsive w3-padding-64">
 <% if @cart.empty? %>
-<p style="margin-top:10%;">You don't have anyting in your cart!<br>
+<div class="w3-center">
+<h2 style="margin-top:10%;">You don't have anyting in your cart right now!</h2><br>
 
-    <!--Code needs to be worked on -->
-    <%# @lastorders.each do |orderitem| %>
-    <%#= orderitem.order_id %>
-    <%# end %>
+  
+         <br><br>
+       <% @orderitems.each do |orderitem| %>
+      <tr>
+        <td><%#= orderitem.created_at %></td>
+       
+        <td><%= orderitem.title %> (you expressed interest in this before <i class="fa fa-smile-o"></i>)</td><br>
+       <td><%#= orderitem.order_id %></td>
+       
+       
+      </tr>
+    <% end %>
+    <a href='/orders' class="w3-button w3-teal w3-hover-black">View all previous orders</a><br>
+    
+    <br>
 
 
 
+<h2>Check out our most popular products below <i class="fa fa-smile-o"></i></h2>
 
-
-You can check out our most popular products below <i class="fa fa-smile-o"></i> </p>
+    </div>
 <%=render 'layouts/popular'%>
 <a href="/products" class="w3-button w3-teal w3-hover-black">All Products</a>
+
 <%else%>
 
 

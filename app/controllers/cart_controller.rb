@@ -1,16 +1,17 @@
 class CartController < ApplicationController
   before_action :authenticate_user!
-  def index
-    
-    #code below for testing
-    #@user = User.find(current_user.id)
-    # @xxx = Order.maximum(id)
-    #@lastorders = Orderitem.all
-    #Above code is testing for displaying last order by user
-    
-    
-    
-    @products = Product.all
+ 
+ def index
+   
+   @user = User.find(current_user.id)
+   
+   
+   @orderitems = Orderitem.where(order_id: @user.orders.last)
+   
+   #@orderitems = Orderitem.all
+   
+   
+   @products = Product.all
     # passes a cart to display
     if session[:cart] then
       @cart = session[:cart]
@@ -18,6 +19,11 @@ class CartController < ApplicationController
       @cart = {}
     end  
   end
+ 
+ 
+ 
+ 
+
 
     
   def add
@@ -66,6 +72,9 @@ end
     id = params[:id]
     cart = session[:cart]
     cart.delete id
+    session[:howmuch] = 0
+    session[:gt] = 0
+    
   
     redirect_to :action => :index
   end

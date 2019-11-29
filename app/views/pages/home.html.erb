@@ -69,11 +69,12 @@
     <header class="w3-container w3-teal w3-display-container"> 
       <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-teal w3-display-topright"><i class="fa fa-remove"></i></span>
       <h4>Don't forget...</h4>
-      <h5>You need to sign in or sign up before you can shop <i class="fa fa-smile-o"></i></h5>
+      <h5>You need to sign in or sign up before you can purchase products <i class="fa fa-smile-o"></i></h5>
     </header>
     <div class="w3-container">
-      <%= link_to 'Sign in', new_user_session_path, class: "w3-button w3-xlarge w3-theme w3-hover-teale" %>
-      <%= link_to 'Register', new_user_registration_path, class: "w3-button w3-xlarge w3-theme w3-hover-teale" %>
+      <%= link_to 'Sign in', new_user_session_path, class: "w3-button w3-xlarge w3-theme w3-hover-teal" %>
+      <%= link_to 'Register', new_user_registration_path, class: "w3-button w3-xlarge w3-theme w3-hover-teal" %>
+      <%= link_to 'See products anyway', '/products', class: "w3-button w3-xlarge w3-theme w3-hover-teal" %>
     </div>
     <footer class="w3-container w3-teal">
       <p>May your coffee kick in before reality does</p>

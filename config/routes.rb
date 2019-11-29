@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :weights
+  resources :contactforms
   resources :prices
   resources :brands
   resources :filters

@@ -3,7 +3,7 @@
     <% if current_user.admin? %>
 
         <div class="w3-container w3-padding-64 w3-center" id="team">
-            <h1>Registered users</h1>
+            <h1>Shipping address</h1>
             
             
             
@@ -13,13 +13,11 @@
             <table class="w3-table-all w3-hoverable w3-hide-small">
                 <thead>
                   <tr>
-                    <th>User Id</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Admin status</th>
-                    <th>Change admin status</th>
-                    <th>Loyal cust.</th>
-                    <th>Add/Remove loyalty bonus</th>
+                    <th>Line 1</th>
+                    <th>Line 2</th>
+                    <th>Line 3</th>
+                    <th>Postcode</th>
+                   
                     
                   </tr>
                 </thead>
@@ -27,18 +25,12 @@
                 <tbody>
                   <% @users.each do |user| %>
                     <tr>
-                      <td><%= user.id %></td>
-                      <td><%= user.name %></td>
-                      <td><%= user.email %></td>
-                      <td><%= user.admin %></td>
+                      <td><%= user.line1 %></td>
+                      <td><%= user.line2 %></td>
+                      <td><%= user.line3 %></td>
+                      <td><%= user.postcode %></td>
                       
-                      <td ><a href="/upgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red"><i class="fa fa-arrow-circle-o-up fa-2x" aria-hidden="true"></i></a>
-                      <a href="/downgrade/<%= user.id %>" class="w3-button w3-teal w3-hover-red"><i class="fa fa-arrow-circle-o-down fa-2x" aria-hidden="true"></i></a></td>
-                      <td><%= user.loyalcust %></td>
-                      <td>
-                          <a href="/isloyal/<%= user.id %>" class="w3-button w3-teal w3-hover-red"><i class="fa fa-arrow-circle-o-up fa-2x" aria-hidden="true"></i></a>
-                          <a href="/isnotloyal/<%= user.id %>" class="w3-button w3-teal w3-hover-red"><i class="fa fa-arrow-circle-o-down fa-2x" aria-hidden="true"></i></a>
-                      </td>
+                      
                     </tr>
                   <% end %>
                 </tbody>
@@ -54,7 +46,7 @@
             
             
             <% @users.each do |user| %>
-            <table class="w3-table-all">
+            <table class="w3-table-all w3-hide-large w3-hide-medium ">
                 <thead>
                     <tr>
                       <th>Name: <%= user.name %></th>
@@ -96,4 +88,3 @@
 
 
 <% end %>
-    

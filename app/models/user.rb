@@ -8,7 +8,14 @@ class User < ApplicationRecord
       params.require(:user).permit(:email, :password, :password_confirmation, :remember_me)
     end
 
- has_many :orders
+has_many :orders
+
+protected
+def confirmation_required?
+  false
+end
+
+ 
 
 
 

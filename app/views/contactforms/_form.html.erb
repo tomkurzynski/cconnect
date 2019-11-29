@@ -1,0 +1,38 @@
+  <div class="w3-col m5">
+      <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
+    
+    <%= form_for(contactform) do |f| %>
+  <% if contactform.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contactform.errors.count, "error") %> prohibited this contactform from being saved:</h2>
+
+      <ul>
+      <% contactform.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+   
+      <div class="w3-section">      
+        <label>Name <% f.label :contactname %></label>
+        <input class="w3-input" type="text" <% f.text_field :contactname %> >
+      </div>
+      <div class="w3-section">      
+        <label>Email <% f.label :contactemail %></label>
+        <input class="w3-input" type="text" <% f.text_field :contactemail %>>
+      </div>
+      <div class="w3-section">      
+        <label>Message <%f.label :contactmessage %></label>
+        <input class="w3-input" type="text" <% f.text_area :contactmessage %>>
+      </div>  
+      <button type="submit" class="w3-button w3-right w3-theme"><% f.submit %> Send</button>
+      </form>
+    
+    <td><%= link_to 'Show', contactform %></td>
+   
+
+  </div>
+
+<% end %>

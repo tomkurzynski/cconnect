@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191127184513) do
+ActiveRecord::Schema.define(version: 20191129005933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20191127184513) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "contactforms", force: :cascade do |t|
+    t.string   "contactname"
+    t.string   "contactemail"
+    t.text     "contactmessage"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "filters", force: :cascade do |t|
@@ -76,6 +84,7 @@ ActiveRecord::Schema.define(version: 20191127184513) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.decimal  "value"
+    t.decimal  "value2"
   end
 
   create_table "products", force: :cascade do |t|
@@ -133,6 +142,8 @@ ActiveRecord::Schema.define(version: 20191127184513) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.decimal  "value"
+    t.decimal  "value2"
   end
 
   add_foreign_key "orderitems", "orders"
