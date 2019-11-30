@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :testprices
   resources :weights
   resources :contactforms
   resources :prices
@@ -60,6 +61,9 @@ get '/cart/clearcart' => 'cart#clear'
   get 'brand/:title', to: 'pages#brand'
   get 'price/:description', to: 'pages#price'
   get 'weight/:description', to: 'pages#weight'
+  get 'testprice/:title', to: 'pages#testprice'
+  
+  
   
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

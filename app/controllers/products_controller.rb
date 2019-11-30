@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
     @brands = Brand.all
     @prices = Price.all
     @weights = Weight.all
+    @testprices = Testprice.all
     
   end
   

@@ -1,0 +1,2 @@
+class Testprice < ApplicationRecord
+end

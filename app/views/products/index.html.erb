@@ -35,7 +35,21 @@
     </div>  
   </div>
   
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-hover-teal" title="Testprices"><%=link_to "Prices","/testprices",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-teal">
+      <%=render 'layouts/testprices'%>
+    </div>  
+  </div>
   
+  <% if user_signed_in? && current_user.admin %>
+  <br>
+  <div><%= link_to 'New Brand', new_brand_path, :class =>"w3-button w3-teal", :role=>"button"  %>
+      <%= link_to 'New Price', new_price_path, :class =>"w3-button w3-teal", :role=>"button"  %>
+      <%= link_to 'New Category', new_category_path, :class =>"w3-button w3-teal", :role=>"button"  %>
+      <%= link_to 'New Weight', new_weight_path, :class =>"w3-button w3-teal", :role=>"button"  %>
+  </div>
+  <% end %>
   <div id="productsContainer" class="responsive">
   
     <h1>All Products</h1>
@@ -72,14 +86,9 @@
 
 <br>
 
-<div><%= link_to 'New Brand', new_brand_path, :class =>"w3-button w3-teal", :role=>"button"  %>
-      <%= link_to 'New Price', new_price_path, :class =>"w3-button w3-teal", :role=>"button"  %>
-      <%= link_to 'New Category', new_category_path, :class =>"w3-button w3-teal", :role=>"button"  %>
-      <%= link_to 'New Weight', new_weight_path, :class =>"w3-button w3-teal", :role=>"button"  %>
 
-</div>
 
 <% if session[:login] == 1 %>    
 <%= link_to 'New Product', new_product_path, :class =>"w3-button w3-teal", :role=>"button"%>
-<%end%>
+<% end %>
 </div>

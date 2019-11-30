@@ -12,10 +12,9 @@ class PagesController < ApplicationController
   def dynamic_page 
     catName = params[:title] 
     @site_contents = SiteContent.where("title like ? ", catName)
-    #partial contactus
+    
     @contactforms = Contactform.new
-    
-    
+
   end
   
  
@@ -95,6 +94,11 @@ def weight
     @products = Product.where("weight >= ? AND weight <= ?", weight1, weight2)
 end
 
+def testprice
+    val = params[:value]
+    val2 = params[:value]
+    @products = Product.where("price >= ? AND price <= ?", val, val2)
+end
 
 
 

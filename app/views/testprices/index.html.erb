@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Testprices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Value</th>
+      <th>Value2</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @testprices.each do |testprice| %>
+      <tr>
+        <td><%= testprice.title %></td>
+        <td><%= testprice.value %></td>
+        <td><%= testprice.value2 %></td>
+        <td><%= link_to 'Show', testprice %></td>
+        <td><%= link_to 'Edit', edit_testprice_path(testprice) %></td>
+        <td><%= link_to 'Destroy', testprice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Testprice', new_testprice_path %>

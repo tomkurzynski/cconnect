@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @testprice.title %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @testprice.value %>
+</p>
+
+<p>
+  <strong>Value2:</strong>
+  <%= @testprice.value2 %>
+</p>
+
+<%= link_to 'Edit', edit_testprice_path(@testprice) %> |
+<%= link_to 'Back', testprices_path %>
