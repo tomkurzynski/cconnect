@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :subscribes
   resources :testprices
   resources :weights
   resources :contactforms
@@ -53,6 +54,7 @@ get '/cart/clearcart' => 'cart#clear'
   get '/allusers' => 'pages#allusers'
   get '/isloyal/:id' => 'pages#isloyal'
   get '/isnotloyal/:id' => 'pages#isnotloyal'
+  #get '/shippingaddr' => 'pages#shippingaddr'
   
   get '/aboutSend/:id' => 'pages#aboutSend'  
   

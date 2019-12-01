@@ -1,0 +1,17 @@
+<div class="w3-container w3-center">
+<p id="notice"><%= notice %></p>
+<br><br><br>
+<p>
+  <h3>Thanks for subscribing!</h3>
+  <strong>We'll send news and special offers monthly to:
+  <%= @subscribe.email %>     </strong><%#= link_to 'Edit email', edit_subscribe_path(@subscribe), class:"w3-button w3-teal w3-hover-black" %>
+</p>
+
+
+<br> 
+<%= link_to 'Back to home', '/', class:"w3-button w3-teal w3-hover-black" %>
+<%= link_to 'Browse all products', '/products', class:"w3-button w3-teal w3-hover-black" %>
+<br><br><br>
+
+</div>
+<%=render 'layouts/popular'%>

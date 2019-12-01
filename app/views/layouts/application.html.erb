@@ -29,6 +29,7 @@
     
     <% if current_user.admin? %>
     <p class="w3-large w3-border" >  <%= link_to "All Users", "/allusers", class: "w3-bar-item w3-button" %></p>
+    <p class="w3-large w3-border" >  <%= link_to "Newsletter Page", "/subscribes", class: "w3-bar-item w3-button" %></p>
     <%end%>
       <p class="w3-large w3-border"><%= link_to 'Edit Profile', edit_user_registration_path, :method => :get, class: "w3-bar-item w3-button" %></p>
       <p class="w3-large w3-border"> <a href="#" class="w3-bar-item w3-button">Shipping address</a></p>
