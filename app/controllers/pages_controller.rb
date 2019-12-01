@@ -18,7 +18,9 @@ class PagesController < ApplicationController
   end
   
  
- 
+# def shippingaddr
+#   @users = User.all
+# end
   
   
   def allusers

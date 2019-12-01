@@ -30,7 +30,6 @@ class SubscribesController < ApplicationController
       redirect_to '/'
     end
     
-    
   end
 
   # POST /subscribes
