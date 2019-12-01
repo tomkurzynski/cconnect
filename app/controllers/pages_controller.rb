@@ -28,6 +28,7 @@ class PagesController < ApplicationController
     @users = User.all
     else
     redirect_to '/'
+    flash[:notice] = "You don't have permissions to view this page."
     end
   end
   

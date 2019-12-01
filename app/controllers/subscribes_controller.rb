@@ -8,6 +8,7 @@ class SubscribesController < ApplicationController
     @subscribes = Subscribe.all
     else
     redirect_to '/'
+    flash[:notice] = "You don't have permission to view this page"
     end
   end
 
