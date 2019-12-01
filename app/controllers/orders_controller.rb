@@ -32,6 +32,13 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
   end
+  
+  def save
+  redirect_to '/products'
+  flash[:notice] = "Order saved"
+  end
+  
+
 
   # POST /orders
   # POST /orders.json

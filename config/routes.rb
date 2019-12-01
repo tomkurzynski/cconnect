@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   devise_for :users do 
     resources :orders 
   end
-  
+  get '/save' => 'orders#save'
   get '/checkout' => 'cart#createOrder'
   get '/paid/:id' => 'pages#paid'
   

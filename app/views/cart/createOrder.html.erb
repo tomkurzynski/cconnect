@@ -95,8 +95,10 @@
         
         <tr>
             <td colspan="3"></td>
+           
             <td class="w3-right-align">
                 <!-- Paypal button --->
+                
                 <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_xclick">
                     <input type="hidden" name="business" value="sb-43xm74622398@business.example.com">
@@ -106,9 +108,11 @@
                     <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
                     <input type="hidden" name="return" value="https://be8a03d039524ceeaf85d9ba0a6c5ade.vfs.cloud9.us-east-1.amazonaws.com/aboutSend/<%= @order.id %>" >
                     <input type="hidden" name="notify_url" value="https://be8a03d039524ceeaf85d9ba0a6c5ade.vfs.cloud9.us-east-1.amazonaws.com/aboutSend/<%= @order.id %>">
-                </form> 
+                </form>
+                
             </td>
         </tr>
+        <tr><td><%= link_to 'Save Order', '/save', class:"w3-button w3-teal w3-hover-black" %></td></tr>
         
     </table>
 
