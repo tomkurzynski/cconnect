@@ -9,8 +9,8 @@
       <tr>
         <td><%#= orderitem.created_at %></td>
        
-        <td>You expressed interest in: <%= orderitem.title %></td><br>
-       <!--Working on this code still - looking to recommend products based on previous orders-->
+        <td>You viewed this last time: <%= orderitem.title %></td><br>
+    
        <td><%#= orderitem.order_id %></td>
        <% m1 = "DeLonghi - La Specialista Espresso Machine" %>
        <% m2 = "Breville - The Barista Express Espresso Machine" %>
@@ -31,8 +31,8 @@
        <% g4 = "Breville - The Smart Grinder Pro" %>
        <% g5 = "Cuisinart - Supreme Grind" %>  
 
-       <% mf1 = "Shardor - Electric Coffee Grinder" %>
-       <% mf2 = "DeLonghi - Coffee Grinder" %>
+       <% mf1 = "Vremi - Milk Frother" %>
+       <% mf2 = "LYH - Milk Frother" %>
 
        <% mj1 = "DeLonghi - Milk Frothing Jug" %>
        <% mj2 = "Breville - Milk Jug" %>
@@ -174,7 +174,9 @@
             
             <a href="/cart/clearcart" class="w3-button w3-teal w3-hover-black">Empty Cart</a> 
             
-            <a href="/checkout" class="w3-button w3-teal w3-hover-black">Go to checkout</a>
+            <!--<a href="/checkout" class="w3-button w3-teal w3-hover-black">Go to checkout</a>-->
+            
+            <%= link_to 'Enter Shipping Address and Checkout', new_shipping_path, class:"w3-button w3-teal w3-hover-black" %>
          
       </div>
 

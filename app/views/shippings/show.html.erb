@@ -1,0 +1,22 @@
+<div class="w3-container w3-center"> 
+<br><br><br><br>
+
+<p>
+  <strong>Line 1:</strong>
+  <%= @shipping.Line_1 %>
+</p>
+
+<p>
+  <strong>Line 2:</strong>
+  <%= @shipping.Line_2 %>
+</p>
+
+<p>
+  <strong>Line 3:</strong>
+  <%= @shipping.Line_3 %>
+</p>
+
+<%#= link_to 'Edit', edit_shipping_path(@shipping), class:"w3-button w3-teal w3-hover-black" %> 
+<%= link_to 'Back to cart', '/cart', class:"w3-button w3-teal w3-hover-black" %>
+<a href="/checkout" class="w3-button w3-teal w3-hover-black">Continue to checkout</a>
+</div>

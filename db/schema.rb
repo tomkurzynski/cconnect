@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191130161952) do
+ActiveRecord::Schema.define(version: 20191202230401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,14 @@ ActiveRecord::Schema.define(version: 20191130161952) do
     t.decimal  "weight"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "shippings", force: :cascade do |t|
+    t.string   "Line_1"
+    t.string   "Line_2"
+    t.string   "Line_3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "site_contents", force: :cascade do |t|

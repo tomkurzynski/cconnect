@@ -1,0 +1,32 @@
+<%= form_for(shipping) do |f| %>
+  <% if shipping.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shipping.errors.count, "error") %> prohibited this shipping from being saved:</h2>
+
+      <ul>
+      <% shipping.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Line_1 %>
+    <%= f.text_field :Line_1, class:"width-50" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Line_2 %>
+    <%= f.text_field :Line_2, class:"width-50" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Line_3 %>
+    <%= f.text_field :Line_3, class:"width-50" %>
+  </div><br>
+
+  <div class="actions">
+    <%= f.submit "Confirm" %>
+  </div>
+<% end %>
