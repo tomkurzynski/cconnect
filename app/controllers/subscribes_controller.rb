@@ -40,7 +40,7 @@ class SubscribesController < ApplicationController
 
     respond_to do |format|
       if @subscribe.save
-        format.html { redirect_to @subscribe, notice: 'Subscribe was successfully created.' }
+        format.html { redirect_to @subscribe, notice: 'Your subscription has been saved.' }
         format.json { render :show, status: :created, location: @subscribe }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class SubscribesController < ApplicationController
   def update
     respond_to do |format|
       if @subscribe.update(subscribe_params)
-        format.html { redirect_to @subscribe, notice: 'Subscribe was successfully updated.' }
+        format.html { redirect_to @subscribe, notice: 'Your subscription was successfully updated.' }
         format.json { render :show, status: :ok, location: @subscribe }
       else
         format.html { render :edit }
@@ -68,7 +68,7 @@ class SubscribesController < ApplicationController
   def destroy
     @subscribe.destroy
     respond_to do |format|
-      format.html { redirect_to subscribes_url, notice: 'Subscribe was successfully destroyed.' }
+      format.html { redirect_to subscribes_url, notice: 'Subscription has been deleted.' }
       format.json { head :no_content }
     end
   end

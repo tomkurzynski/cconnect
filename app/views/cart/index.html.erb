@@ -3,21 +3,83 @@
 <div class="w3-center">
 <h2 style="margin-top:10%;">You don't have anyting in your cart right now!</h2><br>
 
-  
+  <div class="w3-border">
          <br><br>
        <% @orderitems.each do |orderitem| %>
       <tr>
         <td><%#= orderitem.created_at %></td>
        
-        <td><%= orderitem.title %> (you expressed interest in this before <i class="fa fa-smile-o"></i>)</td><br>
+        <td>You expressed interest in: <%= orderitem.title %></td><br>
+       <!--Working on this code still - looking to recommend products based on previous orders-->
        <td><%#= orderitem.order_id %></td>
+       <% m1 = "DeLonghi - La Specialista Espresso Machine" %>
+       <% m2 = "Breville - The Barista Express Espresso Machine" %>
+       <% m3 = "Gevi - Professional Espresso Machine" %>
+       <% m4 = "Bowuttd - Espresso Machine Coffee Maker" %>
+       <% m5 = "Barsetto - Espresso Machine" %>
+       
+       <% c1 = "Café Britt - Costa Rican Tres Rios Valdivia Coffee" %>
+       <% c2 = "Lavazza - Organic Tierra" %>
+       <% c3 = "Café Britt - Costa Rican Poas Tierra Volcanica Coffee" %>
+       <% c4 = "Lavazza - Kafa Forest Coffee" %>
+       <% c5 = "Cafe Don Pablo - Gourmet Coffee" %>
+       <% c6 = "Presto- Robusta Rocket Roast" %>
+    
+       <% g1 = "Shardor - Electric Coffee Grinder" %>
+       <% g2 = "DeLonghi - Coffee Grinder" %>
+       <% g3 = "DeLonghi - Dedica Coffee Grinder" %>
+       <% g4 = "Breville - The Smart Grinder Pro" %>
+       <% g5 = "Cuisinart - Supreme Grind" %>  
+
+       <% mf1 = "Shardor - Electric Coffee Grinder" %>
+       <% mf2 = "DeLonghi - Coffee Grinder" %>
+
+       <% mj1 = "DeLonghi - Milk Frothing Jug" %>
+       <% mj2 = "Breville - Milk Jug" %>
+       <% mj3 = "Star Coffee - Frothing Pitcher" %>
+       <% mj4 = "Camaka - Latte Art" %>
+               
+       
+       
+       
+       
+       <% if orderitem.title == m1 || orderitem.title == m2 || orderitem.title == m3 || orderitem.title == m4 || orderitem.title == m5 %>
+       <%= link_to 'Some coffee beans would go nicely with this','/category/Coffee%20Beans' %><br><br>
+       <% else %>
+       <% end %>
+       
+        <% if orderitem.title == g1 || orderitem.title == g2 || orderitem.title == g3 || orderitem.title == g4 || orderitem.title == g5 %>
+       <%= link_to 'Have you thought about getting a Milk Frother?','/category/Milk%20Frother' %><br><br>
+       <% else %>
+       <% end %>
+
+       <% if orderitem.title == mj1 || orderitem.title == mj2 || orderitem.title == mj3 || orderitem.title == mj4 %>
+       <%= link_to 'Why not get a frother for this?','/category/Milk%20Frother' %><br><br>
+       <% else %>
+       <% end %>       
+
+        <% if orderitem.title == mf1 || orderitem.title == mf2 %>
+       <%= link_to 'Have you got a jug for this?','/category/Milk%20Frothing%20Pitcher' %><br><br>
+       <% else %>
+       <% end %>       
+       
+       
+         <% if orderitem.title == c1 || orderitem.title == c2 || orderitem.title == c3 || orderitem.title == c4 || orderitem.title == c5 || orderitem.title == c6 %>
+       <%= link_to 'Have you got something to grind these?','/category/Grinder' %><br><br>
+       <% else %>
+       <% end %>
+       
        
        
       </tr>
     <% end %>
+    </div><br><br>
+    
+    
     <a href='/orders' class="w3-button w3-teal w3-hover-black">View all previous orders</a><br>
     
     <br>
+ 
 
 
 

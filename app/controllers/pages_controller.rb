@@ -3,6 +3,8 @@ class PagesController < ApplicationController
     #current_user.update_attribute :admin, true
     @categories = Category.all
     @products = Product.all
+    @contactforms = Contactform.all
+    @subscribes = Subscribe.all
     # =>session[:cart] = nil
 
   end
@@ -10,10 +12,13 @@ class PagesController < ApplicationController
 
   
   def dynamic_page 
+ 
+   
     catName = params[:title] 
     @site_contents = SiteContent.where("title like ? ", catName)
     
     @contactforms = Contactform.new
+    
 
   end
   
@@ -93,7 +98,7 @@ end
 
 def weight
     weight1 = params[:value]
-    weight2 = params[:value]
+    weight2 = params[:value2]
     @products = Product.where("weight >= ? AND weight <= ?", weight1, weight2)
 end
 

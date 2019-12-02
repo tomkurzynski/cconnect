@@ -8,6 +8,8 @@ class CartController < ApplicationController
    
    @orderitems = Orderitem.where(order_id: @user.orders.last)
    
+
+   
    #@orderitems = Orderitem.all
    
    

@@ -13,6 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ 
+ .cartclass1{
+     display: none;
+ }
+ .searchclass1{
+     display: none;
+ }
  .hover-black:hover{
      background-color: teal;
      font-size: 17px;
