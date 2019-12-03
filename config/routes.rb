@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :orders 
   end
   get '/save' => 'orders#save'
+  
   get '/checkout' => 'cart#createOrder'
   get '/paid/:id' => 'pages#paid'
   
@@ -53,6 +54,7 @@ get '/cart/clearcart' => 'cart#clear'
   get '/upgrade/:id' => 'pages#upgrade'
   get '/downgrade/:id' => 'pages#downgrade'
   get '/allusers' => 'pages#allusers'
+  get '/shippings' => 'shippings#index'
   get '/isloyal/:id' => 'pages#isloyal'
   get '/isnotloyal/:id' => 'pages#isnotloyal'
   #get '/shippingaddr' => 'pages#shippingaddr'

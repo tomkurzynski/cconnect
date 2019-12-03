@@ -5,6 +5,10 @@ class PagesController < ApplicationController
     @products = Product.all
     @contactforms = Contactform.all
     @subscribes = Subscribe.all
+    if user_signed_in?
+    @user = User.find(current_user.id)
+    @orderitems = Orderitem.where(order_id: @user.orders.last)
+    end
     # =>session[:cart] = nil
 
   end

@@ -94,7 +94,7 @@
 
 
 
-<p id="notice"><%= notice %></p>
+
 
 
 
@@ -124,13 +124,16 @@
             </td>
         
             
-            <td><a href="/remove/<%= product.id %>" class="w-3button w3-hover-black w3-teal" style="text-decoration:none;">X</a></td>
+            
+            <td><a href="/add/<%= product.id %>" ><i class='fas fa-arrow-alt-circle-up w3-teal w3-hover-black'></i></a></td>  
             <td>Qty: <%= quantity %></td>
-            <td><%= product.weight %>Kg</td>
-            <td><a href="/add/<%= product.id %>" ><i class='fas fa-arrow-alt-circle-up w3-teal w3-hover-black'></i></a></td>    
+            
+              
             <td><a href="/reduce/<%= product.id %>" ><i class='fas fa-arrow-alt-circle-down w3-teal w3-hover-black'></i></a></td>
+            <td><%= product.weight %>Kg</td>
             <td><%= number_to_currency(product.price, :unit =>"€") %> per item</td>
             <td><%= number_to_currency(quantity * product.price, :unit =>"€") %> total</td>
+            <td><a href="/remove/<%= product.id %>" class="w-3button w3-hover-black w3-teal" style="text-decoration:none;">Remove</a></td>
             
             
             <tr>

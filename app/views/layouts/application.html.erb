@@ -32,7 +32,7 @@
     <p class="w3-large w3-border" >  <%= link_to "Newsletter Page", "/subscribes", class: "w3-bar-item w3-button" %></p>
     <%end%>
       <p class="w3-large w3-border"><%= link_to 'Edit Profile', edit_user_registration_path, :method => :get, class: "w3-bar-item w3-button" %></p>
-      <p class="w3-large w3-border"> <a href="#" class="w3-bar-item w3-button">Shipping address</a></p>
+      <p class="w3-large w3-border"> <%= link_to "Shipping address", "/shippings", class: "w3-bar-item w3-button" %></p>
       <p class="w3-large w3-border"><%= link_to "View Orders", orders_path, class: "w3-bar-item w3-button"%></p> 
   <p class="w3-large w3-border"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "w3-bar-item w3-button" %></p>
   

@@ -4,8 +4,10 @@ class ShippingsController < ApplicationController
   # GET /shippings
   # GET /shippings.json
   def index
+  
     if user_signed_in? && current_user.admin?
     @shippings = Shipping.all
+    
     else
     redirect_to '/'
     flash[:notice] = "You don't have permission to view this page"
@@ -20,7 +22,15 @@ class ShippingsController < ApplicationController
 
   # GET /shippings/new
   def new
+    if user_signed_in?
+    
     @shipping = Shipping.new
+ 
+    else
+    redirect_to '/users/sign_in'
+    flash[:notice] = "You need to be signed in to add shipping address"
+    end
+    
   end
 
   # GET /shippings/1/edit
