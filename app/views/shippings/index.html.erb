@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Clientid</th>
       <th>Line 1</th>
       <th>Line 2</th>
       <th>Line 3</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @shippings.each do |shipping| %>
       <tr>
+        <td><%= shipping.clientId %></td>
         <td><%= shipping.Line_1 %></td>
         <td><%= shipping.Line_2 %></td>
         <td><%= shipping.Line_3 %></td>

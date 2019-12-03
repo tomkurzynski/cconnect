@@ -12,52 +12,77 @@
   <% end %>
 <br>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
+<div class="w3-container w3-center">
 
   <div class="field">
-    <%= f.label :header1 %>
-    <%= f.text_field :header1 %>
+    <%= f.label :title %> <br>
+    <%= f.text_field :title, class:"width-50" %><br>
   </div>
+  
+  <br> <br>
 
   <div class="field">
-    <%= f.label :header2 %>
-    <%= f.text_field :header2 %>
+    <%= f.label :header1 %><br>
+    <%= f.text_field :header1, class:"width-50" %><br>
   </div>
+  
+    <br> <br>
 
   <div class="field">
-    <%= f.label :description1 %>
-    <%= f.text_field :description1 %>
+    <%= f.label :header2 %><br>
+    <%= f.text_field :header2, class:"width-50" %><br>
   </div>
+  
+    <br> <br>
 
   <div class="field">
-    <%= f.label :description2 %>
-    <%= f.text_field :description2 %>
+    <%= f.label :description1 %><br>
+    <%= f.text_field :description1, class:"width-50" %><br>
   </div>
+  
+    <br> <br>
 
   <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.label :description2 %><br>
+    <%= f.text_field :description2, class:"width-50" %><br>
   </div>
+    
+    <br> <br>
+
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address, class:"width-50" %><br>
+  </div>
+  
+    <br> <br>
   
    <div class="field">
-    <%= f.label :phonenumber %>
-    <%= f.text_field :phonenumber %>
+    <%= f.label :phonenumber %><br>
+    <%= f.text_field :phonenumber, class:"width-50" %><br>
   </div>
+  
+    <br> <br>
   
    <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.label :email %><br>
+    <%= f.text_field :email, class:"width-50" %><br>
   </div>
   
+    <br> <br>
+  
   <div class="field">
-    <%= f.label :image %>
-    <%= f.text_field :image %>
+    <%= f.label :image %><br>
+    <%= f.text_field :image, class:"width-50" %><br>
   </div>
+  
+    <br> <br>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Confirm", class:"width-50 w3-button w3-teal w3-hover-black" %>
+    <br>
   </div>
+  </div>
+  
+  <br> <br>
+  
 <% end %>

@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20191202230401) do
     t.string   "Line_3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "clientId"
   end
 
   create_table "site_contents", force: :cascade do |t|

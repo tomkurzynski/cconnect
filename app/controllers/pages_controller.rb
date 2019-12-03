@@ -95,8 +95,8 @@ def brand
 end
 
 def price
-    price1 = 10 #params[:value]
-    price2 = 50 #params[:value2]
+    price1 = params[:value]
+    price2 = params[:value2]
     @products = Product.where("price >= ? AND price <= ?", price1, price2)
 end
 
@@ -124,7 +124,3 @@ end
 end
 
 
-
-
-
-  

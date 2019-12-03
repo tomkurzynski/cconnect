@@ -64,7 +64,9 @@ get '/cart/clearcart' => 'cart#clear'
   get 'dynamic_page/:title' => 'pages#dynamic_page'
   
   get 'brand/:title', to: 'pages#brand'
-  get 'price/:description', to: 'pages#price'
+  
+  get 'price/:value/:value2', to: 'pages#price'
+  
   get 'weight/:description', to: 'pages#weight'
   get 'testprice/:title', to: 'pages#testprice'
   

@@ -10,6 +10,8 @@
       </ul>
     </div>
   <% end %>
+  
+
 
   <div class="field">
     <%= f.label :Line_1 %>
@@ -25,6 +27,11 @@
     <%= f.label :Line_3 %>
     <%= f.text_field :Line_3, class:"width-50" %>
   </div><br>
+  
+     <div class="field">
+    <%= f.label :clientId %>
+    <%= f.number_field :clientId, value: current_user.id, :readonly => true %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Confirm" %>

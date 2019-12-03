@@ -1,5 +1,4 @@
-  <div class="w3-col m5">
-      <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
+  
     
     <%= form_for(contactform) do |f| %>
   <% if contactform.errors.any? %>
@@ -14,28 +13,32 @@
     </div>
   <% end %>
     
+    <div class="w3-center">
    
-      <div class="w3-section">      
-        <label>Name <% f.label :contactname %></label>
-        <input class="w3-input" type="text" <% f.text_field :contactname %> >
+      <div class="field">     
+        <%#= f.label :contactname %> <br> <br>
+        <%= f.text_field :contactname, class:"width-50" %> 
       </div>
-      <div class="w3-section">      
-        <label>Email <% f.label :contactemail %></label>
-        <input class="w3-input" type="text" <% f.text_field :contactemail %>>
+      
+        <div class="field">  
+        <%#= f.label :contactemail %><br> <br>
+        <%= f.text_field :contactemail, class:"width-50" %>
       </div>
-      <div class="w3-section">      
-        <label>Message <%f.label :contactmessage %></label>
-        <input class="w3-input" type="text" <% f.text_area :contactmessage %>>
+      
+      <div class="field">    
+        <%#= f.label :contactmessage %><br> <br>
+        <%= f.text_area :contactmessage, class:"width-50" %>
       </div>  
-      <div class="actions">
+      
+      <div class="actions"><br>
     <%= f.submit "Confirm", class:"width-50 w3-button w3-teal w3-hover-black" %>
   </div>
-
-      </form>
+  </div>
+     
     
     <td><%= link_to 'Show', contactform %></td>
    
 
-  </div>
-
 <% end %>
+
+

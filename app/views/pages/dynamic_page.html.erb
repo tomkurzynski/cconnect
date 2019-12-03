@@ -32,15 +32,18 @@
 <div class="w3-container w3-padding-64" id=contact>
   <div class="w3-row">
     <div class="w3-col m5">
-    <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Contact Us</span></div>
-      <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i> <%= site_content.address %></p>
+    <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Contact </span></div>
+      <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i> <%= site_content.email %></p>
       <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i> <%= site_content.phonenumber %></p>
-      <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i> <%= site_content.email %></p>
+      <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i> <%= site_content.address %></p>
     </div>
+    
+    
+      
+      
       
 <!----- Partial Contact Form ----->
 <%= render 'contactforms/form', contactform: @contactforms %>
-
 <!----- Partial Contact Form------->
 
      
@@ -56,7 +59,7 @@
     
           <% if current_user.admin? %>
             <%#= link_to 'Show', site_content, :class => "button", :role => "button" %>
-            <%= link_to 'Edit', edit_site_content_path(site_content), :class => "w3-button w3-teal w3-hover-black", :role => "button" %>
+            <%= link_to 'Edit the content of the page', edit_site_content_path(site_content), :class => "w3-button w3-teal w3-hover-black", :role => "button" %>
             <%#= link_to 'Destroy', site_content, method: :delete, data: { confirm: 'Are you sure?' },:class => "button", :role => "button" %>
             <!--Removing below link for now as currently we don't have functionality to show new content -->
             <%#= link_to 'New Site Content', new_site_content_path, :class => "button", :role => "button"%>
@@ -65,4 +68,3 @@
         <% end %>
     <% end %>
 </table>
-

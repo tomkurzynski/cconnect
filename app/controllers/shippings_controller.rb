@@ -3,16 +3,29 @@ class ShippingsController < ApplicationController
 
   # GET /shippings
   # GET /shippings.json
-  def index
+  # def index
   
+  #   if user_signed_in? && current_user.admin?
+  #   @shippings = Shipping.all
+    
+  #   else
+  #   redirect_to '/'
+  #   flash[:notice] = "You don't have permission to view this page"
+  #   end
+   
+  # end
+  
+  def index
     if user_signed_in? && current_user.admin?
-    @shippings = Shipping.all
+      @shippings = Shipping.all
+    
+    elsif user_signed_in?
+    @shippings = Shipping.where(:clientId => current_user.id)
     
     else
     redirect_to '/'
-    flash[:notice] = "You don't have permission to view this page"
     end
-   
+     
   end
 
   # GET /shippings/1
@@ -92,6 +105,6 @@ class ShippingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shipping_params
-      params.require(:shipping).permit(:Line_1, :Line_2, :Line_3)
+      params.require(:shipping).permit(:Line_1, :Line_2, :Line_3, :clientId)
     end
 end
