@@ -10,47 +10,50 @@
 
   <br>
    <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-hover-teal" title="Brands"><%=link_to "All Brands","/brands",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <button class="w3-button w3-hover-teal" title="Brands">Brands <i class="fa fa-caret-down"></i></button>     
     <div class="w3-dropdown-content w3-teal">
       <%=render 'layouts/brands'%>
     </div>  
   </div>
   
   <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-hover-teal" title="Categories"><%=link_to "All Categories","/categories",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <button class="w3-button w3-hover-teal" title="Categories">Categories <i class="fa fa-caret-down"></i></button>     
     <div class="w3-dropdown-content w3-teal">
       <%=render 'layouts/categories'%>
     </div>  
   </div>
   
   <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-hover-teal" title="Prices"><%=link_to "All Prices","/prices",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <button class="w3-button w3-hover-teal" title="Prices">Prices <i class="fa fa-caret-down"></i></button>     
     <div class="w3-dropdown-content w3-teal">
       <%=render 'layouts/prices'%>
     </div>  
   </div>
   
    <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-hover-teal" title="Weights"><%=link_to "All Weights","/weights",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <button class="w3-button w3-hover-teal" title="Weights">Weight <i class="fa fa-caret-down"></i></button>     
     <div class="w3-dropdown-content w3-teal">
       <%=render 'layouts/weights'%>
     </div>  
   </div>
   
-  <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-hover-teal" title="Testprices"><%=link_to "Prices","/testprices",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
-    <div class="w3-dropdown-content w3-teal">
-      <%=render 'layouts/testprices'%>
-    </div>  
-  </div>
   
   <% if user_signed_in? && current_user.admin %>
   <br>
+  <div>
+    <%=link_to "All Brands","/brands", :class =>"w3-button w3-teal", :role=>"button"%></link_to>
+    <%=link_to "All Categories","/categories",:class =>"w3-button w3-teal", :role=>"button"%></link_to>
+    <%=link_to "All Prices","/prices",:class =>"w3-button w3-teal", :role=>"button"%></link_to>
+    <%=link_to "All Weights","/weights",:class =>"w3-button w3-teal", :role=>"button"%></link_to>
+  </div>
+  <br>
   <div><%= link_to 'New Brand', new_brand_path, :class =>"w3-button w3-teal", :role=>"button"  %>
-      <%= link_to 'New Price', new_price_path, :class =>"w3-button w3-teal", :role=>"button"  %>
       <%= link_to 'New Category', new_category_path, :class =>"w3-button w3-teal", :role=>"button"  %>
+      <%= link_to 'New Price', new_price_path, :class =>"w3-button w3-teal", :role=>"button"  %>
       <%= link_to 'New Weight', new_weight_path, :class =>"w3-button w3-teal", :role=>"button"  %>
   </div>
+  <br>
+  <div><%= link_to 'New Product', new_product_path, :class =>"w3-button w3-teal", :role=>"button"  %></div>
   <% end %>
   <div id="productsContainer" class="responsive">
   
@@ -90,7 +93,7 @@
 
 
 
-<% if session[:login] == 1 %>    
+<% if user_signed_in? && current_user.admin %>
 <%= link_to 'New Product', new_product_path, :class =>"w3-button w3-teal", :role=>"button"%>
 <% end %>
 </div>

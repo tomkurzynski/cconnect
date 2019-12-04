@@ -5,6 +5,10 @@ class PricesController < ApplicationController
   # GET /prices.json
   def index
     @prices = Price.all
+    @products = Product.all
+    @categories = Category.all
+    @brands = Brand.all
+    @weights = Weight.all
   end
 
   # GET /prices/1

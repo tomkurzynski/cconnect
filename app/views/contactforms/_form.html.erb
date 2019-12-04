@@ -12,32 +12,34 @@
       </ul>
     </div>
   <% end %>
+  
+  
+ 
+     
+    <div><span class="w3-xlarge w3-border-teal w3-bottombar ">Inquire About Cconnect</span></div>
     
-    <div class="w3-center">
-   
-      <div class="field">     
-        <%#= f.label :contactname %> <br> <br>
+    
+      <div class="field"> 
+        <p>Name</p> 
+        <%#= f.label :contactname %>
         <%= f.text_field :contactname, class:"width-50" %> 
       </div>
       
-        <div class="field">  
-        <%#= f.label :contactemail %><br> <br>
+        <div class="field">
+        <p>Email address </p> 
+        <%#= f.label :contactemail %>
         <%= f.text_field :contactemail, class:"width-50" %>
       </div>
       
-      <div class="field">    
-        <%#= f.label :contactmessage %><br> <br>
-        <%= f.text_area :contactmessage, class:"width-50" %>
+      <div class="field"> 
+        <p> Message </p>
+        <%#= f.label :contactmessage %>
+        <%= f.text_area :contactmessage, class:"width-50" %> 
       </div>  
       
-      <div class="actions"><br>
-    <%= f.submit "Confirm", class:"width-50 w3-button w3-teal w3-hover-black" %>
+      <div class="actions">
+    <%= f.submit "Drop us a line", class:"w3-center width-30 w3-button w3-teal w3-hover-black" %>
   </div>
-  </div>
-     
-    
-    <td><%= link_to 'Show', contactform %></td>
-   
 
 <% end %>
 

@@ -17,22 +17,23 @@
     <%= f.label :Line_1 %>
     <%= f.text_field :Line_1, class:"width-50" %>
   </div>
+  <br>
 
   <div class="field">
     <%= f.label :Line_2 %>
     <%= f.text_field :Line_2, class:"width-50" %>
   </div>
-
+  <br>
   <div class="field">
     <%= f.label :Line_3 %>
     <%= f.text_field :Line_3, class:"width-50" %>
   </div><br>
-  
+  <br>
      <div class="field">
-    <%= f.label :clientId %>
+    <%= f.label :ClientID %>
     <%= f.number_field :clientId, value: current_user.id, :readonly => true %>
   </div>
-
+<br>
   <div class="actions">
     <%= f.submit "Confirm" %>
   </div>

@@ -48,7 +48,7 @@ class ShippingsController < ApplicationController
 
   # GET /shippings/1/edit
   def edit
-       if user_signed_in? && current_user.admin?
+       if user_signed_in? 
     @shippings = Shipping.all
     else
     redirect_to '/'

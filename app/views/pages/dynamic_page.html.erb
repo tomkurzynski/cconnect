@@ -4,6 +4,11 @@
 
 <% @site_contents.each do |site_content| %>
 
+<!------  meta_tags ------->
+<% set_meta_tags title: site_content.title ,
+                 description: 'Coffee Connect offers a full line of exquisite single-origin coffees and blends for your cafe or restaurant.' %>
+<!---------------------------------->
+
 
 <!--header-->
 <div id="header_about" class="w3-display-container w3-animate-opacity">
@@ -33,23 +38,23 @@
   <div class="w3-row">
     <div class="w3-col m5">
     <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Contact </span></div>
-      <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i> <%= site_content.email %></p>
+      <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i> <%= site_content.address %> </p>
       <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i> <%= site_content.phonenumber %></p>
-      <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i> <%= site_content.address %></p>
-    </div>
+      <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i> <%= site_content.email %></p>
+      <br> <br> <br> <br> <br> <br>
+   </div>
+   
     
-    
-      
-      
+     
       
 <!----- Partial Contact Form ----->
 <%= render 'contactforms/form', contactform: @contactforms %>
 <!----- Partial Contact Form------->
-
-     
-    </div>
+ 
+       </div>
   </div>
-</div>
+   
+
 
 
         <!------- Access to admin only

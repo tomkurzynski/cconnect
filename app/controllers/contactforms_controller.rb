@@ -4,13 +4,19 @@ class ContactformsController < ApplicationController
   # GET /contactforms
   # GET /contactforms.json
   def index
+    if user_signed_in? && current_user.admin?
     @contactforms = Contactform.all
+    else
+    redirect_to '/'
+    flash[:notice] = "You don't have permission to view this page"
+    end
   end
 
   # GET /contactforms/1
   # GET /contactforms/1.json
   def show
     @contactforms = Contactform.all
+    
   end
 
   # GET /contactforms/new
@@ -20,6 +26,11 @@ class ContactformsController < ApplicationController
 
   # GET /contactforms/1/edit
   def edit
+    if user_signed_in? && current_user.admin?
+      @contactforms = Contactform.all
+    else
+      redirect_to '/'
+    end
   end
 
   # POST /contactforms
@@ -29,7 +40,7 @@ class ContactformsController < ApplicationController
 
     respond_to do |format|
       if @contactform.save
-        format.html { redirect_to @contactform, notice: 'Contactform was successfully created.' }
+        format.html { redirect_to @contactform, notice: 'Your message has been saved' }
         format.json { render :show, status: :created, location: @contactform }
       else
         format.html { render :new }

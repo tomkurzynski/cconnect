@@ -5,6 +5,9 @@ class PagesController < ApplicationController
     @products = Product.all
     @contactforms = Contactform.all
     @subscribes = Subscribe.all
+    @brands = Brand.all
+    @prices = Price.all
+    @weights = Weight.all
     if user_signed_in?
     @user = User.find(current_user.id)
     @orderitems = Orderitem.where(order_id: @user.orders.last)
@@ -68,6 +71,7 @@ class PagesController < ApplicationController
   def category
     catName = params[:title]
     @products = Product.where("category like ? ", catName)
+    @cat_name = catName
   end
 
   
@@ -92,18 +96,23 @@ end
 def brand
     brandName = params[:title]
     @products = Product.where("brand like ? ", brandName)
+    @brand_name = brandName
 end
 
 def price
     price1 = params[:value]
-    price2 = params[:value2]
+    price2 = price1.to_f + 20
     @products = Product.where("price >= ? AND price <= ?", price1, price2)
+    @price1 = price1
+    @price2 = price2.to_i
 end
 
 def weight
     weight1 = params[:value]
-    weight2 = params[:value2]
+    weight2 = weight1.to_f + 2
     @products = Product.where("weight >= ? AND weight <= ?", weight1, weight2)
+    @weight1 = weight1
+    @weight2 = weight2.to_i
 end
 
 def testprice
@@ -122,5 +131,3 @@ end
 
 
 end
-
-

@@ -93,7 +93,7 @@
       <tr>
         <td><%#= orderitem.created_at %></td>
        
-        <td><span style="color:teal;"><h4>You viewed this last time: <%= orderitem.title %></h4></span></td><br>
+        <td><span style="color:white;"><h4>You viewed this last time: <%= orderitem.title %></h4></span></td><br>
     
        <td><%#= orderitem.order_id %></td>
        <% m1 = "DeLonghi - La Specialista Espresso Machine" %>
@@ -128,28 +128,28 @@
        
        
        <% if orderitem.title == m1 || orderitem.title == m2 || orderitem.title == m3 || orderitem.title == m4 || orderitem.title == m5 %>
-      <span style="color:teal;"><h4> <%= link_to 'Some coffee beans would go nicely with this','/category/Coffee%20Beans' %></h4></span><br><br>
+      <span style="color:white;"><h4> <%= link_to 'Some coffee beans would go nicely with this','/category/Coffee%20Beans' %></h4></span><br><br>
        <% else %>
        <% end %>
        
         <% if orderitem.title == g1 || orderitem.title == g2 || orderitem.title == g3 || orderitem.title == g4 || orderitem.title == g5 %>
-       <span style="color:teal;"><h4><%= link_to 'Have you thought about getting a Milk Frother?','/category/Milk%20Frother' %></h4></span><br><br>
+       <span style="color:white;"><h4><%= link_to 'Have you thought about getting a Milk Frother?','/category/Milk%20Frother' %></h4></span><br><br>
        <% else %>
        <% end %>
 
        <% if orderitem.title == mj1 || orderitem.title == mj2 || orderitem.title == mj3 || orderitem.title == mj4 %>
-       <span style="color:teal;"><h4><%= link_to 'Why not get a frother for this?','/category/Milk%20Frother' %></h4></span><br><br>
+       <span style="color:white;"><h4><%= link_to 'Why not get a frother for this?','/category/Milk%20Frother' %></h4></span><br><br>
        <% else %>
        <% end %>       
 
         <% if orderitem.title == mf1 || orderitem.title == mf2 %>
-       <span style="color:teal;"><h4><%= link_to 'Have you got a jug for this?','/category/Milk%20Frothing%20Pitcher' %></h4></span><br><br>
+       <span style="color:white;"><h4><%= link_to 'Have you got a jug for this?','/category/Milk%20Frothing%20Pitcher' %></h4></span><br><br>
        <% else %>
        <% end %>       
        
        
          <% if orderitem.title == c1 || orderitem.title == c2 || orderitem.title == c3 || orderitem.title == c4 || orderitem.title == c5 || orderitem.title == c6 %>
-       <span style="color:teal;"><h4><%= link_to 'Have you got something to grind these?','/category/Grinder' %></h4></span><br><br>
+       <span style="color:white;"><h4><%= link_to 'Have you got something to grind these?','/category/Grinder' %></h4></span><br><br>
        <% else %>
        
        <% end %>

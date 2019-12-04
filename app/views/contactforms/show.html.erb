@@ -1,19 +1,45 @@
+
+<div class="w3-container w3-center">
 <p id="notice"><%= notice %></p>
+<br><br><br>
+<p>
+  <h3>Thanks for contacting us !</h3>
+  <strong>We'll get back to you soon. </strong>
+</p>
+
+
+<br> 
+<%= link_to 'Back to home', '/', class:"w3-button w3-teal w3-hover-black" %>
+<%= link_to 'Browse all products', '/products', class:"w3-button w3-teal w3-hover-black" %>
+<br><br><br>
+
+</div>
+<%#=render 'layouts/popular'%>
+
+
+
+
+
+
+
+<!--- Previous code 
+
+<p id="notice"><%#= notice %></p>
 
 <p>
   <strong>Contactname:</strong>
-  <%= @contactform.contactname %>
+  <%#= @contactform.contactname %>
 </p>
 
 <p>
   <strong>Contactemail:</strong>
-  <%= @contactform.contactemail %>
+  <%#= @contactform.contactemail %>
 </p>
 
 <p>
   <strong>Contactmessage:</strong>
-  <%= @contactform.contactmessage %>
+  <%#= @contactform.contactmessage %>
 </p>
 
-<%= link_to 'Edit', edit_contactform_path(@contactform) %> |
-<%= link_to 'Back', contactforms_path %>
+<%#= link_to 'Edit', edit_contactform_path(@contactform) %> |
+<%#= link_to 'Back', contactforms_path %>

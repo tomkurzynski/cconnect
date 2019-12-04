@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<% if user_signed_in? && current_user.admin %>
 
 <h1>Weights</h1>
 
@@ -31,3 +32,36 @@
 <br>
 
 <%= link_to 'New Weight', new_weight_path %>
+
+<%else%>
+<br><br><br>
+<div class="w3-container w3-padding-64 w3-center" sytle="padding-top:60px;" id="team">
+   <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-hover-teal" title="Brands"><%=link_to "All Brands","/brands",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-teal">
+      <%=render 'layouts/brands'%>
+    </div>  
+  </div>
+  
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-hover-teal" title="Categories"><%=link_to "All Categories","/categories",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-teal">
+      <%=render 'layouts/categories'%>
+    </div>  
+  </div>
+  
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-hover-teal" title="Prices"><%=link_to "All Prices","/prices",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-teal">
+      <%=render 'layouts/prices'%>
+    </div>  
+  </div>
+  
+   <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-hover-teal" title="Weights"><%=link_to "All Weights","/weights",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-teal">
+      <%=render 'layouts/weights'%>
+    </div>  
+  </div>
+</div>
+<%end%>

@@ -1,13 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="w3-container w3-padding-64 w3-center" id="team">
+  <br><br>
+  <p id="notice"><%= notice %></p>
 
-<h1>Contactforms</h1>
+<h1>Contact us forms</h1>
 
-<table>
+ <table class="w3-table-all w3-hoverable w3-mobile w3-half ">
   <thead>
     <tr>
-      <th>Contactname</th>
-      <th>Contactemail</th>
-      <th>Contactmessage</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Message</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,14 +20,16 @@
         <td><%= contactform.contactname %></td>
         <td><%= contactform.contactemail %></td>
         <td><%= contactform.contactmessage %></td>
-        <td><%= link_to 'Show', contactform %></td>
-        <td><%= link_to 'Edit', edit_contactform_path(contactform) %></td>
-        <td><%= link_to 'Destroy', contactform, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+        <td><%#= link_to 'Show', contactform %></td>
+        <td><%= link_to '<i class="fas fa-edit fa-lg" title="Edit"></i>'.html_safe, edit_contactform_path(contactform) %></td>
+        <td><%= link_to '<i class="fas fa-trash-alt fa-lg" title="Delete"></i>'.html_safe, contactform, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+</div>
 
-<%= link_to 'New Contactform', new_contactform_path %>
+<%#= link_to 'New Contactform', new_contactform_path %>

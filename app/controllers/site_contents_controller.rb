@@ -10,6 +10,7 @@ class SiteContentsController < ApplicationController
   # GET /site_contents/1
   # GET /site_contents/1.json
   def show
+     redirect_to '/'
   end
 
   # GET /site_contents/new

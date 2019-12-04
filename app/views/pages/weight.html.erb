@@ -1,44 +1,62 @@
-<p id="notice"><%= notice %></p>
-  
 <div class="w3-container w3-padding-64 w3-center" sytle="padding-top:60px;" id="team">
-  
-  <br><br><br>
+
+
+  <br>
    <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-hover-teal" title="Brands"><%=link_to "All Brands","/brands",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <button class="w3-button w3-hover-teal" title="Brands">Brands <i class="fa fa-caret-down"></i></button>     
     <div class="w3-dropdown-content w3-teal">
       <%=render 'layouts/brands'%>
     </div>  
   </div>
   
   <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-hover-teal" title="Categories"><%=link_to "All Categories","/categories",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <button class="w3-button w3-hover-teal" title="Categories">Categories <i class="fa fa-caret-down"></i></button>     
     <div class="w3-dropdown-content w3-teal">
       <%=render 'layouts/categories'%>
     </div>  
   </div>
   
   <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-hover-teal" title="Prices"><%=link_to "All Prices","/prices",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <button class="w3-button w3-hover-teal" title="Prices">Prices <i class="fa fa-caret-down"></i></button>     
     <div class="w3-dropdown-content w3-teal">
       <%=render 'layouts/prices'%>
     </div>  
   </div>
   
    <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-hover-teal" title="Weights"><%=link_to "All Weights","/weights",class:"tdnone"%></link_to> <i class="fa fa-caret-down"></i></button>     
+    <button class="w3-button w3-hover-teal" title="Weights">Weight <i class="fa fa-caret-down"></i></button>     
     <div class="w3-dropdown-content w3-teal">
       <%=render 'layouts/weights'%>
     </div>  
   </div>
   
-  <br><br>
   
-  <h2>You Searched Our Product Catalog For <%= @Search_term %></h2>
-
-  <% if @products.length == 0  %>
-  <h2>No products were found to match your search</h2>
-  
+  <% if user_signed_in? && current_user.admin %>
+  <br>
+  <div>
+    <%=link_to "All Brands","/brands", :class =>"w3-button w3-teal", :role=>"button"%></link_to>
+    <%=link_to "All Categories","/categories",:class =>"w3-button w3-teal", :role=>"button"%></link_to>
+    <%=link_to "All Prices","/prices",:class =>"w3-button w3-teal", :role=>"button"%></link_to>
+    <%=link_to "All Weights","/weights",:class =>"w3-button w3-teal", :role=>"button"%></link_to>
+  </div>
+  <br>
+  <div><%= link_to 'New Brand', new_brand_path, :class =>"w3-button w3-teal", :role=>"button"  %>
+      <%= link_to 'New Category', new_category_path, :class =>"w3-button w3-teal", :role=>"button"  %>
+      <%= link_to 'New Price', new_price_path, :class =>"w3-button w3-teal", :role=>"button"  %>
+      <%= link_to 'New Weight', new_weight_path, :class =>"w3-button w3-teal", :role=>"button"  %>
+  </div>
+  <br>
+  <div><%= link_to 'New Product', new_product_path, :class =>"w3-button w3-teal", :role=>"button"  %></div>
   <% end %>
+  <br>
+  
+  <h1>Displaying Weights Between <%= @weight1%>KG & <%= @weight2%>KG</h1>
+  <br>
+    
+  <% if @products.length == 0  %>
+    <h2>No products currently match this weight range</h2>
+  <% end %>
+    
     <% @products.each do |product| %>
     <div class = "producthols">
         <div><h3><%= product.title %></h3></div>
@@ -70,3 +88,4 @@
 
 <br>
 </div>
+

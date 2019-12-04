@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
   before_filter :commonMethod 
   
   def commonMethod
-     @categories = Category.all 
+    @prices = Price.all
+    @products = Product.all
+    @categories = Category.all
+    @brands = Brand.all
+    @weights = Weight.all
+
      #@carts = Cart.all
   
 

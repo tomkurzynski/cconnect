@@ -2,7 +2,7 @@
 <% @prices.each do |price| %>
     <div style="border:1px solid black; width:200px;">
            
-        <p><a class="hover-black tdnone" href="/price/<%= price.value %>/<%= price.value2 %>"><%= price.description %></a></p>
+        <p><a class="hover-black tdnone" href="/price/<%= price.value %>"><%= price.description %></a></p>
     </div>
     
 <% end %>
