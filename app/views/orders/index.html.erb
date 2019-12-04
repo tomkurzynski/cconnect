@@ -41,7 +41,9 @@
             </td>
           <td>
             <% if order.status == 'Pending' %>
-                <%= link_to '<i class="fas fa-trash-alt fa-lg" title="Delete"  ></i>'.html_safe, order, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to '<i class="fas fa-trash-alt fa-lg" title="Destroy
+                
+                "></i>'.html_safe, order, method: :delete, data: { confirm: 'Are you sure?' } %>
               <% end %>
             </td>
         </tr>

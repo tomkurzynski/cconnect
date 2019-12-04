@@ -1,10 +1,4 @@
-
-  
-<!------ meta_tags ------->
-<% set_meta_tags site: 'Cconnect',
-                 title: 'Products',
-                 description: 'We offer a wide range of Arabica and Robusta coffee beans. Expresso Machines, Grinders, Milk pitchers and Milk Frothers are also available on Cconect.com' %>
-<!--------------------------->
+<p id="notice"><%= notice %></p>
 <div class="w3-container w3-padding-64 w3-center" sytle="padding-top:60px;" id="team">
 
 
@@ -37,10 +31,6 @@
     </div>  
   </div>
   
-  <!--<div><button class="w3-button w3-hover-teal" title="sortpriceasc">
-  <%#=link_to "Sort by Lowest","/sortpriceasc", :class =>"w3-button w3-teal", :role=>"button"%>
-  </link_to></button>-->
-  
   
   <% if user_signed_in? && current_user.admin %>
   <br>
@@ -59,12 +49,13 @@
   <br>
   <div><%= link_to 'New Product', new_product_path, :class =>"w3-button w3-teal", :role=>"button"  %></div>
   <% end %>
-  <div id="productsContainer" class="responsive">
-  
-    <h1>All Products</h1>
+    
+    <h1>Displaying Prices by Lowest</h1>
     
     <br>
-    <% @products.each do |product| %>
+    
+    
+    <% @products.each.order(price: :asc) do |product| %>
     <div class = "producthols">
         <div><h3><%= product.title %></h3></div>
         <%= link_to (image_tag product.image_url, :class => "productholsIm", :style => "height:200px; width:200px"), product %>
@@ -94,10 +85,5 @@
     <% end %>
 
 <br>
-
-
-
-<% if user_signed_in? && current_user.admin %>
-<%= link_to 'New Product', new_product_path, :class =>"w3-button w3-teal", :role=>"button"%>
-<% end %>
 </div>
+

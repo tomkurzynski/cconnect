@@ -73,53 +73,54 @@ class PagesController < ApplicationController
     @products = Product.where("category like ? ", catName)
     @cat_name = catName
   end
-
   
   def aboutSend
-@order = Order.find(params[:id])
-@order.update_attribute(:status, "Paid with Paypal")
-redirect_to '/cart/clearcart'
-
-
+    @order = Order.find(params[:id])
+    @order.update_attribute(:status, "Paid with Paypal")
+    
   end
   
-def paid
-    
-    # redirect_to "/cart/clear"
-    flash[:notice] = 'Transaction Complete'
-    @order = Order.last
-    @order.update_attribute(:status , "Paid by User: #{current_user.email}")
-    #"Paid by User:#{current_user.id} #{current_user.name} #{current_user.surname}")
-    
-end
+  def paid
+      
+      # redirect_to "/cart/clear"
+      flash[:notice] = 'Transaction Complete'
+      @order = Order.last
+      @order.update_attribute(:status , "Paid by User: #{current_user.email}")
+      #"Paid by User:#{current_user.id} #{current_user.name} #{current_user.surname}")
+      
+  end
+  
+  def brand
+      brandName = params[:title]
+      @products = Product.where("brand like ? ", brandName)
+      @brand_name = brandName
+  end
+  
+  def price
+      price1 = params[:value]
+      price2 = price1.to_f + 20
+      @products = Product.where("price >= ? AND price <= ?", price1, price2)
+      @price1 = price1
+      @price2 = price2.to_i
+  end
+  
+  def weight
+      weight1 = params[:value]
+      weight2 = weight1.to_f + 2
+      @products = Product.where("weight >= ? AND weight <= ?", weight1, weight2)
+      @weight1 = weight1
+      @weight2 = weight2.to_i
+  end
+  
+  def testprice
+      val = params[:value]
+      val2 = params[:value]
+      @products = Product.where("price >= ? AND price <= ?", val, val2)
+  end
 
-def brand
-    brandName = params[:title]
-    @products = Product.where("brand like ? ", brandName)
-    @brand_name = brandName
-end
-
-def price
-    price1 = params[:value]
-    price2 = price1.to_f + 20
-    @products = Product.where("price >= ? AND price <= ?", price1, price2)
-    @price1 = price1
-    @price2 = price2.to_i
-end
-
-def weight
-    weight1 = params[:value]
-    weight2 = weight1.to_f + 2
-    @products = Product.where("weight >= ? AND weight <= ?", weight1, weight2)
-    @weight1 = weight1
-    @weight2 = weight2.to_i
-end
-
-def testprice
-    val = params[:value]
-    val2 = params[:value]
-    @products = Product.where("price >= ? AND price <= ?", val, val2)
-end
+  def sortpriceasc
+      @products = Product.all
+  end
 
 
 

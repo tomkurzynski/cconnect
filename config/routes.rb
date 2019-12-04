@@ -70,6 +70,8 @@ get '/cart/clearcart' => 'cart#clear'
   get 'weight/:value', to: 'pages#weight'
   get 'testprice/:title', to: 'pages#testprice'
   
+  get 'sortpriceasc/:price' => 'pages#sortpriceasc'
+  
   
   
   
